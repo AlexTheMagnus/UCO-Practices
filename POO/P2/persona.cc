@@ -1,75 +1,39 @@
 #include "persona.h"
+#include <iostream>
+#include <string>
+#include <cstdlib>
 
-Person::Persona(){
-  string aux;
-  std::cout << "Introduzca su dni: " << std::endl;
-  std::cin >> aux;
-  setdni(aux);
-  setnombre("");
-  setapellidos("");
-  setedad(0);
-  setdireccion("");
-  setlocalidad("");
-  setprovincia("");
-  setpais("");
-}
+using std::string;
 
-inline string Persona::getdni(){
-  return dni_;
-}
-inline void Persona::setdni(string aux){
-  dni_=aux;
+Persona::Persona(string dni, string nombre, string apellidos,
+  int edad, string direccion, string localidad, string provincia, string pais){
+  setDNI(dni);
+  setNombre(nombre);
+  setApellidos(apellidos);
+  setEdad(edad);
+  setDireccion(direccion);
+  setLocalidad(localidad);
+  setProvincia(provincia);
+  setPais(pais);
 }
 
-inline string Persona::getnombre(){
-  return nombre_;
-}
-inline void Persona::setnombre(string aux){
-  nombre_=aux;
-}
-
-inline string Persona::getapellidos(){
-  return apellidos_;
-}
-inline void Persona::setapellidos(string aux){
-  apellidos_=aux;
+bool Persona::setEdad(int aux){
+  if(aux < 0){
+    return false;
+  }
+  edad_ = aux;
+  return true;
 }
 
-inline int Persona::getedad(){
-  return edad_;
-}
-inline void Persona::setedad(string aux){
-  edad_=aux;
-}
-
-inline string Persona::getdireccion(){
-  return direccion_;
-}
-inline void Persona::setdireccion(string aux){
-  direccion_=aux;
+string Persona::getApellidosyNombre(){
+  string apellidosynombre;
+  apellidosynombre = apellidos_ + ", " + nombre_;
+  return apellidosynombre;
 }
 
-inline string Persona::getlocalidad(){
-  return localidad_;
-}
-inline void Persona::setlocalidad(string aux){
-  localidad_=aux;
-}
-
-inline string Persona::getprovincia(){
-  return provincia_;
-}
-inline void Persona::setprovincia(string aux){
-  provincia_=aux;
-}
-
-inline string Persona::getpais(){
-  return pais_;
-}
-inline void Persona::setpais(string aux){
-  pais_=aux;
-}
-
-getApellidosyNombre(){
-  
+bool Persona::mayor(){
+  if( edad_ >= 18 ){
+    return true;
+  }
+  return false;
 }

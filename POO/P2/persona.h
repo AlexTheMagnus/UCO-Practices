@@ -1,34 +1,46 @@
 //Persona.h
 //la clase persona representa ciertos atributos de una persona.
+#ifndef PERSONA_H
+#define PERSONA_H
 
-#include <cstring>
+
+#include <string>
+using std::string;
 
 class Persona{
   private:
-    std::string dni_;
-    std::string  nombre_;
-    std::string apellidos_;
+    string dni_;
+    string  nombre_;
+    string apellidos_;
     int edad_;
-    std::string direccion_;
-    std::string localidad_;
-    std::string provincia_;
-    std::string pais_;
+    string direccion_;
+    string localidad_;
+    string provincia_;
+    string pais_;
 
   public:
-    void setdni(string aux);             //Permite cambiar el valor de dni_
-    string getdni();                     //Devuelve el valor de dni_
-    void setnombre(string aux);          //Permite cambiar el valor de nombre_
-    string getnombre();                  //Devuelve el valor de nombre_
-    void setapellidos(string aux);       //Permite cambiar el valor de apellidos_
-    string getapellidos();               //Devuelve el valor de apellidos_
-    void setedad(int aux);               //Permite cambiar el valor de edad_
-    int getedad();                       //Devuelve el valor de edad_
-    void setdireccion(string aux);       //Permite cambiar el valor de direccion_
-    string getdireccion();               //Devuelve el valor de direccion_
-    void setlocalidad(string aux);       //Permite cambiar el valor de localidad_
-    string getlocalidad();               //Devuelve el valor de localidad_
-    void setprovincia(string aux);       //Permite cambiar el valor de provincia_
-    string getprovincia();               //Devuelve el valor de provincia_
-    void setpais(string aux);            //Permite cambiar el valor de pais_
-    string getpais();                    //Devuelve el valor de pais_
+    Persona(string dni, string nombre = "", string apellidos = "", int edad = 0,
+     string direccion = "", string localizacion = "", string provincia = "",
+     string pais = "");
+
+     inline string getDNI(){return dni_;};
+     inline void setDNI(string aux){ dni_ = aux;};
+     inline string getNombre(){return nombre_;};
+     inline void setNombre(string aux){nombre_=aux;};
+     inline string getApellidos(){return apellidos_;};
+     inline void setApellidos(string aux){apellidos_=aux;};
+     inline int getEdad(){return edad_;};
+     bool setEdad(int aux);
+     inline string getDireccion(){return direccion_;};
+     inline void setDireccion(string aux){direccion_=aux;};
+     inline string getLocalidad(){return localidad_;};
+     inline void setLocalidad(string aux){localidad_=aux;};
+     inline string getProvincia(){return provincia_;};
+     inline void setProvincia(string aux){provincia_=aux;};
+     inline string getPais(){return pais_;};
+     inline void setPais(string aux){pais_=aux;};
+
+    string getApellidosyNombre();         //Pide el nombre y apellidos y devuelve un string en fomato "apellidos, nombre"
+    bool mayor();                         //True -> El usuario es mayor de edad, False -> no lo es
 };
+#endif

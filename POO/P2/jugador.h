@@ -4,31 +4,34 @@
 #define JUGADOR_H
 
 #include "persona.h"
-#include <string>
-using std::string;
+#include <list>
+
 using std::list;
 
-struct apuesta{
+class Apuesta{
   int tipo;
   string valor;
   int cantidad;
-}
+};
 
 class Jugador : public Persona {
   private:
     int dinero_;
     string codigo_;
-    list <struct apuesta> apuestas;
+    list <Apuesta> apuestas_;
 
   public:
-    Jugador(string dni, string codigo, string nombre = "", string apellidos = "",
-      int edad = 0, string direccion = "", string localidad = "",
-      string provincia = "", string pais = "");
+    Jugador(const string dni, const string codigo, const string nombre = "",
+      const string apellidos = "", const int edad = 0, const string direccion = "",
+      const string localidad = "", const string provincia = "", const string pais = "");
 
-      inline string getCodigo(){return codigo_;};
+      //Observadores y Modificadores
+      inline string getCodigo()const {return codigo_;};
       inline void setCodigo(string aux){ codigo_ = aux;};
-      inline int getDinero(){return dinero_;};
+      inline int getDinero() const {return dinero_;};
       bool setDinero(int aux);
+      inline list <Apuesta> getApuestas() const {return apuestas_;};
+      void setApuestas();
   };
 
 #endif

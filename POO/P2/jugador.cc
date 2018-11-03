@@ -1,20 +1,43 @@
-#include "persona.h"
-#include <string>
+#include "jugador.h"
+#include <fstream>
 
-using std::string;
-using std::list;
+using std::ifstream;
 
-Crupier::Crupier(string dni, string codigo, string nombre, string apellidos,
-  int edad, string direccion, string localidad, string provincia, string pais): Persona(dni, nombre, apellidos, edad, direccion, localidad, provincia,
-  pais){
-    dinero_ = 1000;
+Jugador::Jugador(const string dni, const string codigo, const string nombre,
+  const string apellidos, const int edad, const string direccion,
+  const string localidad, const string provincia,
+  const string pais): Persona(dni, nombre, apellidos, edad, direccion,
+    localidad, provincia, pais){
+    setDinero(1000);
     setCodigo(codigo);
   }
 
-  bool Jugador::setDinero(int aux){
-    if(aux < 0){
-      return false;
-    }
-    edad_ = aux;
-    return true;
+bool Jugador::setDinero(int aux){
+  if(aux < 0){
+    return false;
   }
+  edad_ = aux;
+  return true;
+}
+
+void Jugador::setApuestas(){
+  //Borra las apuestas
+  apuestas_.clear();
+  //Variables auxiliares para extarer los datos del fichero txt
+  Apuesta apuesta;
+  string dato;
+  //Preguntar a Pablo------------------------------------------
+  ifstream file(getDNI() + ".txt");
+  //file.eof() do an extra read when all lines are read
+  //-----------------------------------------------------------
+  //getline devuelve falso cuando no hay mas lineas por leer
+  while(getline(file, dato, ",")){
+    apuesta.tipo = stoi(dato);
+    getline(file, dato, ",")
+    apuesta.valor = dato;
+    getline(file, dato, ",")
+    apuesta.cantidad = stoi(dato);
+    //Guarda la apuesta aux en la lista de apuestas
+    apuestas_.push_back(apuesta);
+  }
+}

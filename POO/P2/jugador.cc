@@ -26,10 +26,8 @@ void Jugador::setApuestas(){
   //Variables auxiliares para extarer los datos del fichero txt
   Apuesta apuesta;
   string dato;
-  //Preguntar a Pablo------------------------------------------
+  //istream es un clase que se encarga de las funciones de ficheros (como su apertura y cierre)
   ifstream file(getDNI() + ".txt");
-  //file.eof() do an extra read when all lines are read
-  //-----------------------------------------------------------
   //getline devuelve falso cuando no hay mas lineas por leer
   while(getline(file, dato, ",")){
     apuesta.tipo = stoi(dato);
@@ -40,4 +38,5 @@ void Jugador::setApuestas(){
     //Guarda la apuesta aux en la lista de apuestas
     apuestas_.push_back(apuesta);
   }
+  file.close();
 }

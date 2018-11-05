@@ -1,5 +1,6 @@
 #include "jugador.h"
 #include <fstream>
+#include <cstdlib>
 
 using std::ifstream;
 
@@ -16,7 +17,7 @@ bool Jugador::setDinero(int aux){
   if(aux < 0){
     return false;
   }
-  edad_ = aux;
+  dinero_ = aux;
   return true;
 }
 
@@ -25,16 +26,17 @@ void Jugador::setApuestas(){
   apuestas_.clear();
   //Variables auxiliares para extarer los datos del fichero txt
   Apuesta apuesta;
-  string dato;
+  string dato, filename;
   //istream es un clase que se encarga de las funciones de ficheros (como su apertura y cierre)
-  ifstream file(getDNI() + ".txt");
+  filename = getDNI() + ".txt";
+  ifstream file(filename.c_str());
   //getline devuelve falso cuando no hay mas lineas por leer
-  while(getline(file, dato, ",")){
-    apuesta.tipo = stoi(dato);
-    getline(file, dato, ",")
+  while(getline(file, dato, ',')){
+    apuesta.tipo = atoi(dato.c_str());
+    getline(file, dato, ',');
     apuesta.valor = dato;
-    getline(file, dato, ",")
-    apuesta.cantidad = stoi(dato);
+    getline(file, dato, ',');
+    apuesta.cantidad = atoi(dato.c_str());
     //Guarda la apuesta aux en la lista de apuestas
     apuestas_.push_back(apuesta);
   }

@@ -9,9 +9,10 @@
 using std::list;
 
 class Apuesta{
-  int tipo;
-  string valor;
-  int cantidad;
+  public:
+    int tipo;
+    string valor;
+    int cantidad;
 };
 
 class Jugador : public Persona {

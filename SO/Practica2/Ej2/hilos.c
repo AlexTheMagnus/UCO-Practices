@@ -74,18 +74,14 @@ void *adder(void *p)
 }----------------------------------------------------------*/
 
 
-int maximo(){                 //Calcula el maximo de un vector
-  extern int Numero[NHILOS];
-  int aux = 0;                //Guarda el mayor elemento del vector
-  int mayor = Numero[0];      //Guarda el indice del vector correspondiente al mayor elemento
-
+int maximo(int *Numero){          //Calcula el maximo de un vector
+  int mayor = Numero[0];          //Guarda el elemento mayor del vector
   for(int i = 1; i < NHILOS; i++){
-    if(Numero[i] > aux){
-      mayor = i;
-      aux = Numero[i];
+    if(Numero[i] > mayor){
+      mayor = Numero[i];
     }
   }
-  return aux;
+  return mayor;
 }
 
 
@@ -102,21 +98,21 @@ void *Proceso(void *p){
   i = 0;
   while( i < ITER ){
     Eligiendo[*id] = 1;
-    Numero[*id] = Numero[maximo()] + 1;
+    Numero[*id] = maximo(Numero) + 1;
     Eligiendo[*id] = 0;
 
     for(j = 0; j < NHILOS; j++){
       while(Eligiendo[j]);
-      while((Numero[j] != 0) && ( (Numero[j] < Numero[*id]) || ( Numero[j] == Numero[*id] && *id < j ) ) ){
-        //Sección Crítica
-        l = counter;
-        fprintf(stdout, "Hilo %d: %f\n", *id, counter);
-        l++;
-        counter = l;
-        //Fin Sección Crítica
-        //Numero[*id]
-      }
+      while((Numero[j] != 0) && ( (Numero[j] < Numero[*id]) || ( Numero[j] == Numero[*id] && (j < *id) ) ) );
     }
+    //Sección Crítica-----------------------------------------------------------------------------------
+    l = counter;
+    fprintf(stdout, "Hilo %d: %f\n", *id, counter);
+    l++;
+    counter = l;
+    //Fin Sección Crítica-------------------------------------------------------------------------------
+    //Al salir de la sección crítica el proceso es pusto a 0
+    Numero[*id] = 0;
     i++;
   }
 

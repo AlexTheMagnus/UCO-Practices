@@ -2,6 +2,8 @@
 //la clase ruleta representa ciertos atributos de un juego de apuestas con una ruleta.
 #ifndef RULETA_H
 #define RULETA_H
+#include "crupier.h"
+#include "jugador.h"
 
 using std::list;
 using std::string;
@@ -10,7 +12,7 @@ class Ruleta{
   private:
     int banca_;                     //Dinero de la banca en €
     int bola_;
-    list<string> jugadores_;
+    list <Jugador> jugadores_;
     Crupier c_; //crupier heredado no se como va
 
   public:

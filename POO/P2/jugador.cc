@@ -35,7 +35,7 @@ void Jugador::setApuestas(){
     apuesta.tipo = atoi(dato.c_str());
     getline(file, dato, ',');
     apuesta.valor = dato;
-    getline(file, dato, ',');
+    getline(file, dato, '\n');
     apuesta.cantidad = atoi(dato.c_str());
     //Guarda la apuesta aux en la lista de apuestas
     apuestas_.push_back(apuesta);

@@ -1,10 +1,10 @@
 #include "ruleta.h"
 #include "crupier.h"
-
+//Voy por el punto 7
 using std::list;
 using std::string;
 
-Ruleta::Ruleta(int banca, int bola, Crupier c){
+Ruleta::Ruleta(Crupier c){
   setBola(-1);
   setBanca(1000000);
   setCrupier(c);

@@ -12,8 +12,8 @@ class Ruleta{
   private:
     int banca_;                     //Dinero de la banca en €
     int bola_;
-    list <Jugador> jugadores_;
-    Crupier c_; //crupier heredado no se como va
+    list <Jugador> jugadores_;      //Lista de Jugador heredado
+    Crupier crupier_;               //crupier heredado
 
   public:
     Ruleta(int banca, int bola, Crupier c);
@@ -21,9 +21,9 @@ class Ruleta{
     inline int getBola(){return bola_;};
     bool setBanca(int aux);
     bool setBola(int aux);
-    inline Crupier getCrupier(return c_;);
-    Crupier setCrupier(Crupier aux);
-
+    inline Crupier getCrupier(return crupier_;);
+    inline Crupier setCrupier(Crupier aux){crupier_ = aux;};
+    inline list <Jugador> getJugadores(){return jugadores_};
     bool addJugador(Jugador aux);
     inline int deleteJugador(string dni){jugadores_;};
 };

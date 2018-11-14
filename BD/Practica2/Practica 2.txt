@@ -1,0 +1,52 @@
+--1
+select nombrecompleto
+from VOTANTES
+where NOMBRECOMPLETO like '%n';
+
+--2
+select DNI
+from VOTANTES
+where DNI like '%5%5%5%';
+
+--3
+select nombrecompleto
+from votantes
+where fechanacimiento > '01/01/1990';
+
+--4
+select v.NOMBRECOMPLETO, l.nombre
+from votantes v, localidades l
+where numerohabitantes > 300000 and l.IDLOCALIDAD=v.LOCALIDAD;
+
+--5
+select v.NOMBRECOMPLETO, p.comunidad
+from votantes v, localidades l, provincias p
+where l.numerohabitantes > 300000 and l.IDLOCALIDAD=v.LOCALIDAD
+and  p.idprovincia=l.provincia;
+
+--6 y 7 (Son iguales)
+select p.idpartido, count(c.partido) "conteo"
+from partidos p, consultas_datos c
+where p.IDPARTIDO=c.PARTIDO
+group by p.idpartido;
+
+--8
+select p.nombrecompleto
+from partidos p, consultas_datos c
+where p.IDPARTIDO=c.PARTIDO
+group by p.nombrecompleto
+having count(c.partido)>10;
+
+
+--9
+select p.nombrecompleto, count(c.partido) "conteo"
+from partidos p, consultas_datos c
+where p.IDPARTIDO=c.PARTIDO
+group by p.nombrecompleto
+having count(c.partido)>10;
+
+--10
+select p.nombrecompleto, count(c.partido) "conteo"
+from partidos p, consultas_datos c
+where p.IDPARTIDO = c.PARTIDO and c.RESPUESTA = 'Si' and c.CERTIDUMBRE > 0.8
+group by p.nombrecompleto;

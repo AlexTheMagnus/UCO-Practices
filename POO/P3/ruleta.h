@@ -25,6 +25,7 @@ class Ruleta{
     inline Crupier setCrupier(Crupier aux){crupier_ = aux;};
     inline list <Jugador> getJugadores(){return jugadores_};
     bool addJugador(Jugador aux);
-    inline int deleteJugador(string dni){jugadores_;};
+    int deleteJugador(Jugador aux);
+    int deleteJugador(string dni);
 };
 #endif

@@ -1,6 +1,5 @@
 #include "ruleta.h"
-#include "crupier.h"
-//Voy por el punto 7
+//Voy por el punto 10
 using std::list;
 using std::string;
 
@@ -27,7 +26,41 @@ bool Persona::setBola(int aux){
 }
 
 bool addJugador(Jugador aux){
-  jugadores_.insert(aux);
-  //crear fichero texto
-  return true;
+  string filename = getDNI() + ".txt";
+  //Comprueba si el fichero ya existe y entra si no existe
+  if( !(ifstream(filename)) ){
+    jugadores_.push_back(aux);
+    std::ofstream file (filename);  //crea el fichero de apuestas
+    file.close();
+    return true;
+  }
+  return false
+}
+
+int deleteJugador(Jugador aux){
+  if(!jugadores_.size()){return 1;}     //Comprueba si la lista está vacía
+  int del = -1;
+  //Busca al jugador a borrar
+  for(int i=0; i < jugadores_.size(); i++){
+    if(aux.getDNI() == jugadores_[i].getDNI()){
+      del = i;
+    }
+  }
+  if(del == -1){return -2;}   //Comprueba que el jugador esté en la lista
+  jugadores_.erase(del);
+  return 1;
+}
+
+int deleteJugador(string aux){
+  if(!jugadores_.size()){return 1;}     //Comprueba si la lista está vacía
+  int del = -1;
+  //Busca al jugador a borrar
+  for(int i=0; i < jugadores_.size(); i++){
+    if(aux == jugadores_[i].getDNI()){
+      del = i;
+    }
+  }
+  if(del == -1){return -2;}   //Comprueba que el jugador esté en la lista
+  jugadores_.erase(del);
+  return 1;
 }

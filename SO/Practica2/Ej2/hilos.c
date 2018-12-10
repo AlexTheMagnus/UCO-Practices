@@ -31,15 +31,15 @@ int main()
 
     // Create NHILOS threads
     for (i = 0; i < NHILOS; i++) {
-	v[i] = i;
-	if ((status = pthread_create(&hilos[i], NULL, Proceso, (void *) &v[i])))
-	    exit(status);
+    	v[i] = i;
+    	if ((status = pthread_create(&hilos[i], NULL, Proceso, (void *) &v[i])))
+	     exit(status);
     }
 
     // Wait threads
     for (i = 0; i < NHILOS; i++) {
-	pthread_join(hilos[i], (void **) &r_value);
-	printf("Value returned by %lu thread: %lf\n", hilos[i], *r_value);
+    	pthread_join(hilos[i], (void **) &r_value);
+    	printf("Value returned by %lu thread: %lf\n", hilos[i], *r_value);
     }
 
     // Final result

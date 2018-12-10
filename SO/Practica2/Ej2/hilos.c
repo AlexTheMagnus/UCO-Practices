@@ -111,7 +111,7 @@ void *Proceso(void *p){
     l++;
     counter = l;
     //Fin Sección Crítica-------------------------------------------------------------------------------
-    //Al salir de la sección crítica el proceso es pusto a 0
+    //Al salir de la sección crítica el proceso es puesto a 0
     Numero[*id] = 0;
     i++;
   }

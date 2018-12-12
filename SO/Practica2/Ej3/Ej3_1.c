@@ -1,6 +1,7 @@
 //Problema Productor-Consumidor. Modelo 1 (1 productor y 1 consumidor).
 
 #include <pthread.h>
+#include <stdio.h>
 #include <stdlib.h>         //--Para srand y rand--
 #include <semaphore.h>
 
@@ -9,7 +10,7 @@ int buffer[TAMBUFFER];
 int producido = 0, consumido = 0;
 
 //Declaración de semáforos
-semp_t lleno;       //Número de huecos ocupados en el buffer
+sem_t lleno;       //Número de huecos ocupados en el buffer
 sem_t vacio;        //Número de huecos libres en el buffer
 sem_t stop;         //Semáforo binario para exclusión de sección crítica
 
@@ -17,12 +18,6 @@ sem_t stop;         //Semáforo binario para exclusión de sección crítica
 void * produciendo();
 void * consumiendo();
 int RandomNumber();
-
-/*
-sem_wait(&stop);
-/*Sección crítica
-sem_post(&stop);
-    */
 
 int main(){
 
@@ -82,8 +77,8 @@ void *produciendo(){
     for(int i = 0; i < 100; i++) {
         sem_wait(&vacio);
         sem_wait(&stop);
-        buffer[/*lleno*/] = RandomNumber();
-        producido += buffer[/*lleno*/];
+        buffer[ i % TAMBUFFER ] = RandomNumber();
+        producido += buffer[ i % TAMBUFFER ];
         sem_post(&stop);
         sem_post(&lleno);
     }
@@ -99,7 +94,7 @@ void *consumiendo(void *p){
     for(int i = 0; i < 100; i++) {
         sem_wait(&lleno);
         sem_wait(&stop);
-        consumido += buffer[/*lleno*/];
+        consumido += buffer[ i % TAMBUFFER ];
         sem_post(&stop);
         sem_post(&vacio);
     }

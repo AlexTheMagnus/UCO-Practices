@@ -5,6 +5,7 @@
 #include <stdlib.h>         //--Para srand y rand--
 #include <semaphore.h>
 
+#define NPRODUCTOS 100     //Es el número de productor a producir y consumir
 #define TAMBUFFER 10
 int buffer[TAMBUFFER];
 int producido = 0, consumido = 0;
@@ -74,7 +75,7 @@ void *produciendo(){
     extern int buffer[TAMBUFFER], producido;
     extern sem_t stop, lleno, vacio;
 
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < NPRODUCTOS; i++) {
         sem_wait(&vacio);
         sem_wait(&stop);
         buffer[ i % TAMBUFFER ] = RandomNumber();
@@ -87,11 +88,11 @@ void *produciendo(){
 
 
 //Función del hilo consumidor
-void *consumiendo(void *p){
+void *consumiendo(){
     extern int buffer[TAMBUFFER], consumido;
     extern sem_t stop, lleno, vacio;
 
-    for(int i = 0; i < 100; i++) {
+    for(int i = 0; i < NPRODUCTOS; i++) {
         sem_wait(&lleno);
         sem_wait(&stop);
         consumido += buffer[ i % TAMBUFFER ];

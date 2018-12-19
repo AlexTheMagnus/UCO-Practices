@@ -1,5 +1,5 @@
 #include "ruleta.h"
-//Voy por el punto 11
+//Voy por el punto 13
 using std::list;
 using std::string;
 
@@ -108,4 +108,90 @@ void Ruleta::leeJugadores(){
         jugadores_.push_back(aux);      //Añade el jugador extraido a la lista
     }
     file.close();
+}
+
+string getColor_(){
+    if(getBola() == 0) return "0";
+    else{
+        int negro[18] = {2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35};
+        for(int i = 0; i < 18; i++){
+            if(getBola() == negro[i]) return "negro";
+        }
+    }
+    return "rojo";
+}
+
+string getParImpar_(){
+    if(getBola() == 0) return "0";
+    if((getBola() % 2) == 0 ) return "par";
+    else{ return "impar"; }
+}
+
+string getAltoBajo_(){
+    if(getBola() == 0) return "0";
+    if(getBola() <= 18 ) return "bajo";
+    else{ return "alto"; }
+}
+
+void getPremios(){
+    list <Jugador>::iterator jugador_it;    //Para iterar entre los distintos jugadores
+    list <Apuesta> apuestas_aux;             //Para trabajar con las apuestas de un jugador temporalmente
+    list <Apuesta>::iterator apuesta_it;    //Para iterar entre las apuestas de un mismo jugador
+
+    for(jugador_it = jugadores_.begin(); jugador_it != jugadores_.end(); jugador_it++){
+
+        jugador_it->setApuestas();      //Actualiza las apuesta de un jugador
+        apuestas_aux = jugador_it->getApuestas();
+
+        for(apuesta_it = apuestas_aux.begin(); apuesta_it != apuestas_aux.end(); apuesta_it++){
+
+            switch (apuesta_it->tipo) {
+                case 1:     //Apuesta sencilla
+                    if( getBola() == stoi(apuesta_it->valor) ){
+                        int ganado = 35 * (apuesta_it->cantidad);
+                        jugador_it->setDinero( ganado + (jugador_it->getDinero()) );
+                        setBanca( getBanca() - ganado );
+                    }
+                    else{
+                        jugador_it->setDinero( (jugador_it->getDinero()) - (apuesta_it->cantidad) );
+                        setBanca( getBanca() + (apuesta_it->cantidad) );
+                    }
+                break;
+
+                case 2:     //Apuesta rojo/negro
+                    if(apuesta_it->valor == getColor_()){
+                        jugador_it->setDinero( (apuesta_it->cantidad) + (jugador_it->getDinero()) );
+                        setBanca( getBanca() - (apuesta_it->cantidad) );
+                    }
+                    else{
+                        jugador_it->setDinero( (jugador_it->getDinero()) - (apuesta_it->cantidad) );
+                        setBanca( getBanca() + (apuesta_it->cantidad) );
+                    }
+
+                break;
+
+                case 3:     //Apuesta par/impar
+                    if(apuesta_it->valor == getParImpar_()){
+                        jugador_it->setDinero( (apuesta_it->cantidad) + (jugador_it->getDinero()) );
+                        setBanca( getBanca() - (apuesta_it->cantidad) );
+                    }
+                    else{
+                        jugador_it->setDinero( (jugador_it->getDinero()) - (apuesta_it->cantidad) );
+                        setBanca( getBanca() + (apuesta_it->cantidad) );
+                    }
+                break;
+
+                case 4:     //Apuesta alto/bajo
+                if(apuesta_it->valor == getAltoBajo_()){
+                    jugador_it->setDinero( (apuesta_it->cantidad) + (jugador_it->getDinero()) );
+                    setBanca( getBanca() - (apuesta_it->cantidad) );
+                }
+                else{
+                    jugador_it->setDinero( (jugador_it->getDinero()) - (apuesta_it->cantidad) );
+                    setBanca( getBanca() + (apuesta_it->cantidad) );
+                }
+                break;
+            }
+        }
+    }
 }

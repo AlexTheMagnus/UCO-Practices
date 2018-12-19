@@ -27,5 +27,7 @@ class Ruleta{
     bool addJugador(Jugador aux);
     int deleteJugador(Jugador aux);
     int deleteJugador(string dni);
+    void escribeJugadores();
+    void leeJugadores();
 };
 #endif

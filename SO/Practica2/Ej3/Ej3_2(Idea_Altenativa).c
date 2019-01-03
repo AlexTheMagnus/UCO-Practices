@@ -6,23 +6,24 @@
 #include <semaphore.h>
 
 #define TAMBUFFER 10
-#define NPRODUCTOS 100     //Es el número de productos a producir por hilo
-#define NPRODUCTORES 4
-#define NCONSUMIDORES 7
+#define NPRODUCTOS 100     //Es el número de productos a producir y consumir
+#define NPRODUCTORES 2
+#define NCONSUMIDORES 2
 int buffer[TAMBUFFER];
 int producido = 0, consumido = 0;
 int prodit = 0, consit = 0;     //Iteradores de los hilos productores y consumidores respectivamente
 
 //Declaración de semáforos
-sem_t lleno;        //Número de huecos ocupados en el buffer
+sem_t lleno;       //Número de huecos ocupados en el buffer
 sem_t vacio;        //Número de huecos libres en el buffer
 sem_t stop;         //Semáforo binario para exclusión de sección crítica
+sem_t semprodit;
+sem_t semconsit;
 
 //Declaración de funciones
 void * produciendo();
 void * consumiendo();
 int RandomNumber();
-int ConsPorHilo();
 
 int main(){
     extern sem_t lleno, vacio, stop;
@@ -42,6 +43,8 @@ int main(){
     if((sem_init(&lleno, 0, 0)) == -1) {printf("Error. Fallo al inicializar el semáforo lleno\n");}
     if((sem_init(&vacio, 0, TAMBUFFER)) == -1) {printf("Error. Fallo al inicializar el semáforo vacio\n");}
     if((sem_init(&stop, 0, 1)) == -1) {printf("Error. Fallo al inicializar el semáforo stop\n");}
+    if((sem_init(&semprodit, 0, 1)) == -1) {printf("Error. Fallo al inicializar el semáforo semprodit\n");}
+    if((sem_init(&semconsit, 0, 1)) == -1) {printf("Error. Fallo al inicializar el semáforo semconsit\n");}
 
 
 
@@ -49,17 +52,17 @@ int main(){
     int nprod[NPRODUCTORES];
     for (int i = 0; i < NPRODUCTORES; i++) {
         nprod[i] = i;
-        if ((status = pthread_create(&productor[i], NULL, produciendo, NULL  ))){
+        if ((status = pthread_create(&productor[i], NULL, produciendo, NULL /*(void *) &nprod[i]*/ ))){
             printf("Error al crear el hilo productor nº %d\n", i);
             exit(status);
         }
     }
 
     //Creación de hilos consumidores
-    int ncons[NCONSUMIDORES];
+    int ncons[NPRODUCTORES];
     for (int i = 0; i < NCONSUMIDORES; i++) {
         ncons[i] = i;
-        if ((status = pthread_create(&consumidor[i], NULL, consumiendo, (void *) &ncons[i] ))){
+        if ((status = pthread_create(&consumidor[i], NULL, consumiendo, NULL /*(void *) &ncons[i]*/ ))){
             printf("Error al crear el hilo consumidor nº %d\n", i);
             exit(status);
         }
@@ -76,9 +79,7 @@ int main(){
         };
         printf("Total producido por el hilo nº %d = %d\n", nprod[i], *suma);
     }
-
-    printf("\n");
-
+    printf("hola no funcio4\n");
     //Recogida de los hilos productores
     for (int i = 0; i < NCONSUMIDORES; i++) {
         if( status = pthread_join(consumidor[i], (void *) &suma )){
@@ -86,9 +87,8 @@ int main(){
         };
         printf("Total consumido por el hilo nº %d = %d\n", ncons[i], *suma);
     }
-
+    printf("hola no funcio5\n");
     //Producción y consumición total de todos los hilos
-    printf("\n");
     printf("Se ha producido entre todos los hilos: %i\n", producido);
     printf("Se ha consumido entre todos los hilos: %i\n", consumido);
 
@@ -97,10 +97,11 @@ int main(){
 //Función del hilo productor
 void *produciendo(){
     extern int buffer[TAMBUFFER], producido, prodit;
-    extern sem_t stop, lleno, vacio;
+    extern sem_t stop, lleno, vacio, semprodit;
     int *suma, total = 0;
-
-    for(int i = 0; i < NPRODUCTOS; i++) {       //for(;prodit < NPRODUCTOS;)
+    printf("hola no produzco\n");
+    sem_wait(&semprodit);
+    for(; prodit < NPRODUCTOS;) {       //for(;prodit < NPRODUCTOS;)
         sem_wait(&vacio);
         sem_wait(&stop);
         buffer[ prodit % TAMBUFFER ] = RandomNumber();
@@ -109,7 +110,12 @@ void *produciendo(){
         prodit++;
         sem_post(&stop);
         sem_post(&lleno);
+
+        sem_post(&semprodit);
+        //printf("%d\n", prodit);
+        if(prodit < NPRODUCTOS) {sem_wait(&semprodit);}
     }
+    printf("hola no produzco nah\n");
 
     //Retorno del total producido del hilo
     suma = malloc(sizeof(int));
@@ -119,11 +125,13 @@ void *produciendo(){
 
 
 //Función del hilo consumidor
-void *consumiendo(void * nhilo){
+void *consumiendo(){
     extern int buffer[TAMBUFFER], consumido, consit;
-    extern sem_t stop, lleno, vacio;
+    extern sem_t stop, lleno, vacio, semprodit;
     int *suma, total = 0;
-    for(int i = 0; i < ConsPorHilo( *((int *) nhilo) ); i++) {       //for(;consit < NPRODUCTOS;)
+    printf("hola no consumo\n");
+    sem_wait(&semconsit);
+    for(; consit < NPRODUCTOS;) {       //for(;consit < NPRODUCTOS;)
         sem_wait(&lleno);
         sem_wait(&stop);
         consumido += buffer[ consit % TAMBUFFER ];
@@ -131,7 +139,12 @@ void *consumiendo(void * nhilo){
         consit++;
         sem_post(&stop);
         sem_post(&vacio);
+
+        sem_post(&semconsit);
+        //printf("%d\n", consit);
+        if(consit < NPRODUCTOS) {sem_wait(&semconsit);}
     }
+    printf("hola no consumo nah\n");
 
     //Retorno del total consumido del hilo
     suma = malloc(sizeof(int));
@@ -143,12 +156,4 @@ void *consumiendo(void * nhilo){
 int RandomNumber(){
     srand(time(NULL));
     return (rand() % 1001);
-}
-
-int ConsPorHilo(int nhilo) {        //Calcula el nº de productos a consumir por hilo
-	int nprod = NPRODUCTOS * NPRODUCTORES / NCONSUMIDORES;
-    //Cuando NPRODUCTORES/NCONSUMIDORES no es una división exacta se generan productos sobrantes:
-	int prodsobrantes = (NPRODUCTOS * NPRODUCTORES) % NCONSUMIDORES;
-	if(nhilo == (NCONSUMIDORES - 1)){ return (nprod + prodsobrantes); }
-	else { return nprod; }
 }

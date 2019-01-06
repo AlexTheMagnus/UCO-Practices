@@ -1,4 +1,4 @@
-//Algoritmo_SJF (Shorter Job First)
+//Algoritmo_SJF (Shorter Job First) - Manuel Alejandro Luque León
 #include <stdio.h>
 #include <string.h>
 

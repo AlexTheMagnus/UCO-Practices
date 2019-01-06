@@ -1,4 +1,4 @@
-//Algoritmo_FCFS (First Come, First Served)- Provisto por la universidad
+//Algoritmo_Round_Robin - Manuel Alejandro Luque León
 #include <stdio.h>
 #include <string.h>
 
@@ -76,12 +76,6 @@ void main(){
         }
     }
 
-    /*for(i=0; i< NPROC; i++){
-        if(ciclo==0) procesos[i].t_com = 0;
-        else procesos[i].t_com = procesos[i-1].t_fin;
-    }
-    procesos[i].t_fin*/
-
     //Calcula los ultimos valores e imprime los resultados
     printf("\nProceso | t_comienzo | t_final | t_retorno | t_espera\n");
     printf("-------------------------------------------------------\n");
@@ -91,6 +85,5 @@ void main(){
 
         printf("   %s \t    %d \t\t %d \t   %d \t      %d\n", procesos[i].nombre,procesos[i].t_com, procesos[i].t_fin, procesos[i].t_ret, procesos[i].t_esp);
     }
-
-
+    
 }

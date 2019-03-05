@@ -268,3 +268,12 @@ ed::Monomio & ed::Monomio::Potencia(int &x){
 
 	return *nuevo;
 }
+
+bool ed::Monomio::Comprueba(double &x, double &y){
+	double c3po;
+	c3po = calcularValor(x);
+	if(abs(c3po - y) < COTA_ERROR){
+		return true;
+	}
+	else{return false;}
+}

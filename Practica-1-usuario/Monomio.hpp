@@ -8,6 +8,7 @@
 
 // Para usar la funciones pow y std::abs
 #include <cmath>
+using std::abs;
 
 // Para controlar las pre y post condiciones mediante asertos
 #include <cassert>
@@ -51,15 +52,15 @@ class Monomio
 
 	/**
 	 * \brief Observador del grado de la clase monomio
-	 * \retval double grado_: valor del grado del monomio
+	 * \retval int grado_: valor del grado del monomio
 	*/
-	inline double getGrado() const {return grado_;};
+	inline int getGrado() const {return grado_;};
 
 	/**
 	 * \brief Observador del coeficiente de la clase monomio
-	 * \retval int coeficiente_: valor del coeficiente del monomio
+	 * \retval double coeficiente_: valor del coeficiente del monomio
 	*/
-	inline int getCoeficiente() const {return coeficiente_;};
+	inline double getCoeficiente() const {return coeficiente_;};
 
 
 	//! \name Funciones de modificación de la clase Monomio
@@ -88,7 +89,7 @@ class Monomio
 	void setCoeficiente(double x){
 		coeficiente_=x;
 		#ifndef NDEBUG
-			assert((this->getCoeficiente() - x) < COTA_ERROR );
+			assert(abs(this->getCoeficiente() - x) < COTA_ERROR );
 		#endif
 	}
 
@@ -189,8 +190,16 @@ class Monomio
 	*/
 	ed::Monomio & Potencia(int &x);
 
+	/**
+	 * \brief Método para comprobar si un punto está en la gráfica de un monomio
+	 * \param double &x: referencia del real simboliza la coordenada "x" del punto
+	 * \parma double &y: referencia del real simboliza la coordenada "y" del punto
+	 * \retval bool: Devuelve true si está en la gráfica, false en caso contrario
+	*/
+	bool Comprueba(double &x, double &y);
 
-	
+
+
 };  // Fin de la definición de la clase Monomio
 
 }  //  Fin de namespace ed.

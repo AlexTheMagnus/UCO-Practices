@@ -38,6 +38,9 @@ int ed::menu()
     PLACE(posicion++,10);
 	std::cout << "[3] Test método Potencia " << std::endl;
 
+    PLACE(posicion++,10);
+	std::cout << "[4] Test método Comprueba " << std::endl;
+
 	posicion++;
 	PLACE(posicion++,10);
 	std::cout << BIRED;
@@ -558,7 +561,7 @@ void ed::testPotencia(){
     ed::Monomio m;
 
     std::cout << BIGREEN;
-	std::cout<< "Introduzca un número real" << std::endl;
+	std::cout<< "Introduzca un número entero" << std::endl;
 	std::cout << RESET;
 	std::cout<< "x --> ";
 	std::cin >> x;
@@ -573,4 +576,28 @@ void ed::testPotencia(){
     std::cout << "\t" << "El resultado es ";
     m.escribirMonomio();
     std::cout << '\n';
+}
+
+void ed::testComprueba(){
+    double x, y;
+    ed::Monomio m;
+
+    std::cout << BIGREEN;
+    std::cout<< "Introduzca valores reales para el punto" << std::endl;
+    std::cout << RESET;
+    std::cout<< "x --> ";
+    std::cin >> x;
+    std::cout<< "y --> ";
+    std::cin >> y;
+
+    m.leerMonomio();
+
+    if(m.Comprueba(x,y)){
+        std::cout << "El punto (" << x << "," << y << ") corresponde al monomio ";
+        m.escribirMonomio();
+    }
+    else{
+        std::cout << "El punto (" << x << "," << y << ") no corresponde al monomio ";
+        m.escribirMonomio();
+    }
 }

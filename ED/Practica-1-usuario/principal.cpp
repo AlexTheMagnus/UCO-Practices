@@ -68,6 +68,13 @@ int main()
 				ed::testPotencia();
 				break;
 
+			case 4:
+				std::cout << BIBLUE;
+				std::cout << "[4] Test del método Comprueba " << std::endl;
+				std::cout << RESET;
+
+				ed::testComprueba();
+				break;
 
 			default:
 				std::cout << BIRED;

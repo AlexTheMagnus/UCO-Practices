@@ -31,6 +31,11 @@ namespace ed
 	*/
 	void testPotencia();
 
+	/*!
+		\brief Funcion de prueba del método Comprueba
+	*/
+	void testComprueba();
+
 } // Fin del espacio de nombre de la asignatura: ed
 
 // Fin de _FUNCIONESAUXILIARES_HPP_

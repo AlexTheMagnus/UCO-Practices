@@ -7,6 +7,8 @@
 //  Ficheros de cabecera
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
 
 #include "operadoresExternosMonomios.hpp"
 
@@ -18,7 +20,7 @@ namespace ed
 
 	bool operator==(ed::Monomio const & m1, ed::Monomio const & m2)
 	{
-		if((abs(m1.getGrado() - m2.getGrado()) < COTA_ERROR ) and (abs(m1.getCoeficiente() - m2.getCoeficiente()) < COTA_ERROR)){
+		if((abs(m1.getGrado() - m2.getGrado()) < 0 ) and (abs(m1.getCoeficiente() - m2.getCoeficiente()) < COTA_ERROR)){
 			return true;
 		}
 		else{ return false; }
@@ -26,7 +28,7 @@ namespace ed
 
 	bool operator==(ed::Monomio const & m, double const & x)
 	{
-		if((abs(m.getGrado()) < COTA_ERROR ) and (abs(m.getCoeficiente() - x) < COTA_ERROR)){
+		if((abs(m.getGrado()) < 0 ) and (abs(m.getCoeficiente() - x) < COTA_ERROR)){
 			return true;
 		}
 		else{ return false; }
@@ -34,7 +36,7 @@ namespace ed
 
 	bool operator==(double const & x, ed::Monomio const & m)
 	{
-		if((abs(m.getGrado()) < COTA_ERROR ) and (abs(m.getCoeficiente() - x) < COTA_ERROR)){
+		if((abs(m.getGrado()) < 0 ) and (abs(m.getCoeficiente() - x) < COTA_ERROR)){
 			return true;
 		}
 		else{ return false; }
@@ -232,8 +234,9 @@ namespace ed
 		nuevo->setGrado(m.getGrado());
 
 		#ifndef NDEBUG
-			assert(abs( nuevo->getGrado() - m.getGrado() ) < COTA_ERROR );
-			assert(abs(nuevo->getCoeficiente() - ( m.getCoeficiente() / x) ) < COTA_ERROR );
+			double aux = m.getCoeficiente() / x;
+			assert(abs( nuevo->getGrado() - m.getGrado() ) == 0);
+			assert(abs(nuevo->getCoeficiente() - (aux) ) < COTA_ERROR );
 		#endif
 
 		// Se devuelve el resultado
@@ -267,9 +270,9 @@ namespace ed
 	{
 		std::string dato;
 		std::getline(stream, dato, ' ');
-		m.setCoeficiente(atof(dato.c_str()));
+		m.setCoeficiente(std::atof(dato.c_str()));
 		std::getline(stream, dato, '\n');
-		m.setGrado(atoi(dato.c_str()));
+		m.setGrado(std::atoi(dato.c_str()));
 
    		// Se devuelve el flujo de entrada
 		return stream;

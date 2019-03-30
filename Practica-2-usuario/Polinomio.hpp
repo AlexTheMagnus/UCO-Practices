@@ -16,8 +16,7 @@
 #include <cmath>
 
 #include "PolinomioInterfaz.hpp"
-#include "Monomio.hpp"
-
+#include "operadoresExternosMonomios.hpp"
 
 // Se incluye la clase Polinomio dentro del espacio de nombre de la asigantura: ed
 namespace ed {
@@ -29,28 +28,40 @@ class Polinomio: public ed::PolinomioInterfaz
   //! \name Atributos privados de la clase Polinomio
    private:
 
-  // COMPLETAR
+        std::vector<ed::Monomio> vector_;
 
    //! \name Funciones o métodos públicos de la clase Polinomio
    public:
 
 	//! \name Constructores de la clase Polinomio
 
-  // COMPLETAR
+    Polinomio();
+
+    Polinomio(Polinomio &p);
 
   //! \name Observadores: funciones de consulta de la clase Polinomio
 
-	// COMPLETAR
+	bool esNulo() const;
 
+  int getGrado() const;
+
+  int getNumeroMonomios() const;
+
+  bool existeMonomio(int n) const;
+
+  Monomio & getMonomio(int n) const;
+
+  //Incluido por mi
+  inline std::vector <ed::Monomio> getVector() const {return this->vector_;}
 
 	//! \name Funciones de modificación de la clase Polinomio
 
-	// COMPLETAR
+	void ordenarPolinomio();
 
 
  	////////////////////////////////////////////////////////////////
 
-   //! \name Operadores de la clase Polinomio
+  //! \name Operadores de la clase Polinomio
 
 	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 	Polinomio & operator=(Polinomio const &p);
@@ -63,26 +74,52 @@ class Polinomio: public ed::PolinomioInterfaz
 
   // Operadores aritméticos y asignación
 
-		// COMPLETAR LOS COMENTARIOS DE DOXYGEN
+	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 	Polinomio & operator+=(Polinomio const &p);
 
 
 	// COMPLETAR EL RESTO DE OPERADORES
+    Polinomio & operator+=(ed::Monomio const &m);
+    
+    Polinomio & operator+=(double const &x);
 
+    Polinomio & operator-=(Polinomio const &p);
+
+    Polinomio & operator-=(ed::Monomio const &m);
+
+    Polinomio & operator-=(double const &x);
+
+    Polinomio & operator*=(Polinomio const &p);
+
+    Polinomio & operator*=(ed::Monomio const &m);
+
+    Polinomio & operator*=(double const &x);
+
+    Polinomio & operator/=(Polinomio const &p);
+
+    Polinomio & operator/=(ed::Monomio const &m);
+
+    Polinomio & operator/=(double const &x);
 
   /////////////////////////////////////////////////////////////////////////////////////
 
 	//! \name Funciones lectura y escritura de la clase Polinomio
 
-	// COMPLETAR
+  void leerPolinomio();
 
+  void escribirPolinomio() const;
 
 	///////////////////////////////////////////////////////////////////////
 
 	//! \name Funciones auxiliares de la clase Polinomio
 
-	// COMPLETAR
+  double calcularValor(double &x) const;
 
+  //Funciones adicionales
+
+  ed::Polinomio & Potencia(int &x);
+
+  bool Comprueba(double &x, double &y);
 
 }; // Fin de la definición de la clase Polinomio
 

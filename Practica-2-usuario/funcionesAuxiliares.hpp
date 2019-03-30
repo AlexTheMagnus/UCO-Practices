@@ -24,6 +24,10 @@ namespace ed
 	// COMPLETAR LOS COMENTARIOS DE DOXYGEN
 	void operadoresExternosPolinomios();
 
+	void testPotencia();
+
+	void testComprueba();
+
 } // Fin del espacio de nombre de la asignatura: ed
 
 // Fin de _FUNCIONESAUXILIARES_HPP_

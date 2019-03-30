@@ -13,8 +13,9 @@
 //Constructores
 ed::Polinomio::Polinomio(){
 	ed::Monomio m(0.0, 0);
+	this->getVector().clear();
 	this->getVector().push_back(m);
-
+	
 	#ifndef NDBUG
 		assert(esNulo());
 	#endif
@@ -30,7 +31,8 @@ ed::Polinomio::Polinomio(Polinomio &p){
 
 //Observadores
 bool ed::Polinomio::esNulo() const {
-	#ifndef NDBUG
+	/*#ifndef NDBUG
+
 	ed::Polinomio *VecOrdenado = new ed::Polinomio();
 	*VecOrdenado = *this;
 	VecOrdenado->ordenarPolinomio();
@@ -40,19 +42,18 @@ bool ed::Polinomio::esNulo() const {
 		assert(*it == *it2);
 		it2++;
 	}
-	#endif
+	#endif*/
+	//ed::Monomio m(0.0, 0);
+	if(this->getNumeroMonomios() != 1){
+		return false;
+	}
 
-	ed::Monomio m(0.0, 0);
-	if(this->getVector().front() == m){
+	if((this->getVector()[0].getGrado() == 0) && (std::abs(this->getVector()[0].getCoeficiente()) < COTA_ERROR) == 0){
 		return true;
 	}
 	else{
 		return false;
 	}
-}
-
-int ed::Polinomio::getGrado() const{
-	return this->getVector().begin()->getGrado();
 }
 
 int ed::Polinomio::getNumeroMonomios() const {

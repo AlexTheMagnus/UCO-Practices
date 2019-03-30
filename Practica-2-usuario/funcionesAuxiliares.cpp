@@ -80,7 +80,6 @@ void ed::testPolinomio()
 	// Constructor sin argumentos
 	ed::Polinomio p1, p2;
 
-
 	// Lectura y escritura de un número real auxilar
 	std::cout << BIGREEN;
 	std::cout<< "Lectura de un número real auxiliar" << std::endl;
@@ -199,7 +198,7 @@ void ed::testPolinomio()
 	std::cout<< "Asignación de un monomio a un polinomio --> p1 = m"<< std::endl;
 	p1 = m;
 	std::cout<< "p1 = ";
-	p2.escribirPolinomio();
+	p1.escribirPolinomio();
 	std::cout << std::endl;
 	std::cout<< "m = ";
 	m.escribirMonomio();
@@ -209,7 +208,7 @@ void ed::testPolinomio()
 	std::cout<< "Asignación de un número a un polinomio --> p1 = x"<< std::endl;
 	p1 = x;
 	std::cout<< "p1 = ";
-	p2.escribirPolinomio();
+	p1.escribirPolinomio();
 	std::cout << std::endl;
 	std::cout<< "x = " << x;
 	std::cout << std::endl << std::endl;

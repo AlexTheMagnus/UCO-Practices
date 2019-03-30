@@ -42,8 +42,8 @@ class Polinomio: public ed::PolinomioInterfaz
   //! \name Observadores: funciones de consulta de la clase Polinomio
 
 	bool esNulo() const;
-
-  int getGrado() const;
+  
+  inline int getGrado() const {return this->getVector().front().getGrado();}; 
 
   int getNumeroMonomios() const;
 
@@ -52,7 +52,7 @@ class Polinomio: public ed::PolinomioInterfaz
   Monomio & getMonomio(int n) const;
 
   //Incluido por mi
-  inline std::vector <ed::Monomio> getVector() const {return this->vector_;}
+  inline std::vector <ed::Monomio> getVector() const {return vector_;};
 
 	//! \name Funciones de modificación de la clase Polinomio
 

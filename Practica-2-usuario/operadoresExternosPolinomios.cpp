@@ -523,8 +523,8 @@ ed::Polinomio & operator/(ed::Polinomio const &p1, ed::Polinomio const &p2)
 	#ifndef NDEBUG
 		assert(p1.getGrado() >= p2.getGrado());
 	#endif
-	p1.ordenarPolinomio();
-	p2.ordenarPolinomio();
+	//p1.ordenarPolinomio();
+	//p2.ordenarPolinomio();
 
 	ed::Polinomio *cociente = new ed::Polinomio();
 	ed::Polinomio *resto = new ed::Polinomio();
@@ -569,7 +569,7 @@ ed::Polinomio & operator/(ed::Monomio const &m, ed::Polinomio const &p)
 		assert(m.getGrado() >= p.getGrado());
 	#endif
 
-	p.ordenarPolinomio();
+	//p.ordenarPolinomio();
 
 	ed::Polinomio *cociente = new ed::Polinomio();
 	ed::Polinomio *resto = new ed::Polinomio();
@@ -591,7 +591,7 @@ ed::Polinomio & operator/(ed::Monomio const &m, ed::Polinomio const &p)
 	return *cociente;
 }
 
-ed::Polinomio & operator/(ed::Polinomio &p, double const &x)
+ed::Polinomio & operator/(ed::Polinomio const &p, double const &x)
 {
 	#ifndef NDEBUG
 		assert(abs(x) > COTA_ERROR);
@@ -609,7 +609,7 @@ ed::Polinomio & operator/(ed::Polinomio &p, double const &x)
 }
 
 //El polinomio debe tener grado 0 y coef distinto de 0.0
-ed::Polinomio & operator/(double const &x, ed::Polinomio &p)
+ed::Polinomio & operator/(double const &x, ed::Polinomio const &p)
 {
 	#ifndef NDEBUG
 		assert(abs(x) > COTA_ERROR);

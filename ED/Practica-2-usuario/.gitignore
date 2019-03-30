@@ -1,4 +1,4 @@
 *.out
 *.exe
 *.o
-vs_code/*
+.vscode/*

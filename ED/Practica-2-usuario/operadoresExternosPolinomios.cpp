@@ -64,7 +64,7 @@ bool operator==( ed::Monomio const & m, ed::Polinomio const & p)
 	return true;
 }
 
-bool operator==( ed::Polinomio const & p, double &x)
+bool operator==( ed::Polinomio const & p, double const & x)
 {
 	if(p.getNumeroMonomios() != 1){
 		return false;
@@ -78,7 +78,7 @@ bool operator==( ed::Polinomio const & p, double &x)
 	return true;
 }
 
-bool operator==( double &x, ed::Polinomio const & p)
+bool operator==( double const & x, ed::Polinomio const & p)
 {
 	if(p.getNumeroMonomios() != 1){
 		return false;
@@ -142,7 +142,7 @@ bool operator!=( ed::Monomio const & m, ed::Polinomio const & p)
 	return true;
 }
 
-bool operator!=(ed::Polinomio const & p, double &x)
+bool operator!=(ed::Polinomio const & p, double const & x)
 {
 	if(p.getNumeroMonomios() != 1){
 		return false;
@@ -156,7 +156,7 @@ bool operator!=(ed::Polinomio const & p, double &x)
 	return false;
 }
 
-bool operator!=( double &x, ed::Polinomio const & p)
+bool operator!=(double const & x, ed::Polinomio const & p)
 {
 	if(p.getNumeroMonomios() != 1){
 		return true;
@@ -518,7 +518,7 @@ ed::Polinomio & operator*(double const &x, ed::Polinomio const &p)
 ////////////////////////////////////
 // División
 
-ed::Polinomio & operator/(ed::Polinomio &p1, ed::Polinomio &p2)
+ed::Polinomio & operator/(ed::Polinomio const &p1, ed::Polinomio const &p2)
 {//?
 	#ifndef NDEBUG
 		assert(p1.getGrado() >= p2.getGrado());
@@ -546,7 +546,7 @@ ed::Polinomio & operator/(ed::Polinomio &p1, ed::Polinomio &p2)
 	return *cociente;
 }
 
-ed::Polinomio & operator/(ed::Polinomio &p,ed::Monomio const &m)
+ed::Polinomio & operator/(ed::Polinomio const &p,ed::Monomio const &m)
 {
 	#ifndef NDEBUG
 		assert(p.getGrado() >= m.getGrado());
@@ -563,7 +563,7 @@ ed::Polinomio & operator/(ed::Polinomio &p,ed::Monomio const &m)
 	return *auxp;
 }
 
-ed::Polinomio & operator/(ed::Monomio const &m, ed::Polinomio &p)
+ed::Polinomio & operator/(ed::Monomio const &m, ed::Polinomio const &p)
 {//? Esto es lo mismo que polinomio entre polinomio, investigar
 	#ifndef NDEBUG
 		assert(m.getGrado() >= p.getGrado());

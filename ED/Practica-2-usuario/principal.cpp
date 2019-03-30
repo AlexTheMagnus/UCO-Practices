@@ -15,7 +15,6 @@
 #include <iostream>
 
 #include "funcionesAuxiliares.hpp"
-
 #include "macros.hpp"
 
 /*! 
@@ -54,7 +53,23 @@ int main()
 
 			case 2: 
 			   	std::cout << BIBLUE;
-				std::cout << "[2] Operadores externos de la clase Polinomio " << std::endl;
+				std::cout << "[2] Operadores externos de la clase Polinomio" << std::endl;
+				std::cout << RESET;
+
+				ed::operadoresExternosPolinomios();
+				break;
+
+			case 3: 
+				std::cout << BIBLUE;
+				std::cout << "[3] Test del método Potencia" << std::endl;
+				std::cout << RESET;
+
+				ed::testPotencia();
+				break;
+
+			case 4: 
+				std::cout << BIBLUE;
+				std::cout << "[4] Test del método Comprueba" << std::endl;
 				std::cout << RESET;
 
 				ed::operadoresExternosPolinomios();

@@ -11,11 +11,7 @@
 
 #include "macros.hpp"
 #include "funcionesAuxiliares.hpp"
-
-#include "operadoresExternosMonomios.hpp"
 #include "operadoresExternosPolinomios.hpp"
-
-
 
 int ed::menu()
 {
@@ -37,7 +33,15 @@ int ed::menu()
 	std::cout << "[1] Test de la clase Polinomio" << std::endl;
 
 	PLACE(posicion++,10);
-	std::cout << "[2] Operadores externos de la clase Polinomio " << std::endl;
+	std::cout << "[2] Operadores externos de la clase Polinomio" << std::endl;
+
+
+	PLACE(posicion++,10);
+	std::cout << "[3] Test del método Potencia" << std::endl;
+
+
+	PLACE(posicion++,10);
+	std::cout << "[4] Test del método Comprueba" << std::endl;
 
 	posicion++;
 	PLACE(posicion++,10);
@@ -62,13 +66,13 @@ int ed::menu()
 ///////////////////////////////////////////////////////////////////////////
 void ed::testPolinomio()
 {
-  // QUITAR ESTAS SENTENCIAS Y EL COMENTARIO DE BLOQUE
+ /* // QUITAR ESTAS SENTENCIAS Y EL COMENTARIO DE BLOQUE
   std::cout << BIGREEN;
   std::cout << "testPolinomio()" << std::endl;
   std::cout << RESET;
   std::cout << "Quitar el comentario de bloque cuando se haya codificado la clase Polinomio " << std::endl << std::endl;
 
-  /*
+  */
 	double x;
 
 	ed::Monomio m;
@@ -467,7 +471,7 @@ void ed::testPolinomio()
 	p3.escribirPolinomio();
 	std::cout << std::endl;
 	std::cout<< "p3(" << x << ") = " << p3.calcularValor(x) << std::endl << std::endl;
-*/
+
 
 	// Fin
 	return;
@@ -480,13 +484,13 @@ void ed::testPolinomio()
 
 void ed::operadoresExternosPolinomios()
 {
-  // QUITAR ESTAS SENTENCIAS Y EL COMENTARIO DE BLOQUE
+  /*// QUITAR ESTAS SENTENCIAS Y EL COMENTARIO DE BLOQUE
   std::cout << BIGREEN;
   std::cout << "operadoresExternosPolinomios()" << std::endl;
   std::cout << RESET;
   std::cout << "Quitar el comentario de bloque cuando se haya codificado la clase Polinomio y los operadores externos de dicha clase" << std::endl << std::endl;
 
-/*
+*/
 	double x;
 
 	// Constructor por defecto
@@ -530,7 +534,7 @@ void ed::operadoresExternosPolinomios()
 	std::cout<< "Escritura de polinomios usando los operadores de flujo" << std::endl;
 	std::cout << RESET;
 
-	std::cout<< "p1 " << p1 << std::endl;
+	std::cout<< "p1 = " << p1 << std::endl;
 	std::cout<< "p2 = " << p2 << std::endl;
 
 	//
@@ -814,6 +818,55 @@ void ed::operadoresExternosPolinomios()
 
 
 	std::cout << std::endl;
-*/
+
 	return;
+}
+
+void ed::testPotencia(){
+	int x;
+    ed::Polinomio p;
+
+    std::cout << BIGREEN;
+	std::cout<< "Introduzca un número entero" << std::endl;
+	std::cout << RESET;
+	std::cout<< "x --> ";
+	std::cin >> x;
+
+    p.leerPolinomio();
+    std::cout << '\n';
+
+    std::cout << "\t" << "Al elevar a " << x << " el polinomio ";
+    p.escribirPolinomio();
+	std::cout << "\n";
+
+    p = p.Potencia(x);
+    std::cout << "\t" << "El resultado es ";
+    p.escribirPolinomio();
+    std::cout << '\n';
+}
+
+void ed::testComprueba(){
+	double x, y;
+	ed::Polinomio p;
+
+	std::cout << BIGREEN;
+	std::cout<< "Introduzca valores reales para el punto" << std::endl;
+	std::cout << RESET;
+	std::cout<< "x --> ";
+	std::cin >> x;
+	std::cout<< "y --> ";
+	std::cin >> y;
+
+	p.leerPolinomio();
+
+	if(p.Comprueba(x,y)){
+		std::cout << "El punto (" << x << "," << y << ") corresponde al monomio ";
+		p.escribirPolinomio();
+		std::cout << "\n";
+	}
+	else{
+		std::cout << "El punto (" << x << "," << y << ") no corresponde al monomio ";
+		p.escribirPolinomio();
+		std::cout << "\n";
+	}
 }

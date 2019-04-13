@@ -2,15 +2,15 @@
 //la clase ruleta representa ciertos atributos de un juego de apuestas con una ruleta.
 #ifndef RULETA_H
 #define RULETA_H
-#include <stdlib>       //rand() y srand()
-#include <time>
+#include <cstdlib>       //rand() y srand()
+#include <ctime>
 #include "crupier.h"
 #include "jugador.h"
 
 using std::list;
 using std::string;
 
-srand( time(NULL) );
+//srand(time(NULL));
 
 class Ruleta{
   private:
@@ -24,14 +24,14 @@ class Ruleta{
     string getAltoBajo_();
 
   public:
-    Ruleta(int banca, int bola, Crupier c);
-    inline int getBanca(){ return banca_; };
-    inline int getBola(){ return bola_; };
+    Ruleta(Crupier c);
+    inline int getBanca(){ return banca_; }
+    inline int getBola(){ return bola_; }
     bool setBanca(int aux);
     bool setBola(int aux);
-    inline Crupier getCrupier( return crupier_; );
-    inline Crupier setCrupier(Crupier aux){ crupier_ = aux; };
-    inline list <Jugador> getJugadores(){ return jugadores_; };
+    inline Crupier getCrupier(){ return crupier_; }
+    inline void setCrupier(Crupier aux){ crupier_ = aux; }
+    inline list <Jugador> getJugadores(){ return jugadores_; }
     bool addJugador(Jugador aux);
     int deleteJugador(Jugador aux);
     int deleteJugador(string dni);

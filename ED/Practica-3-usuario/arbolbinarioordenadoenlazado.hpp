@@ -1,6 +1,6 @@
 #ifndef __ARBOLBINARIOORDENADO_HPP__
 #define __ARBOLBINARIOORDENADOENLAZADO_HPP__
-
+//ESTO REALMENTE ES UN .HPP. RECUERDA RENOMBRARLO ??
 #include <iostream>
 #include <cassert>
 #include "arbolbinarioordenado.hpp"
@@ -126,7 +126,7 @@ namespace ed
 		}; //Fin clase NodoArbolBinario
 
 		//Implementación de la raíz
-		NodoArbolBinario * _raiz; /*!<La raiz del árbol*/
+		NodoArbolBinario * _raiz; /*!<Cursor a la raiz del árbol*/
 		NodoArbolBinario * _actual; /*!<Cursor al nodo actual*/
 		NodoArbolBinario * _padre; /*!<Cursor al nodo padre*/
 
@@ -145,11 +145,11 @@ namespace ed
 
 		ArbolBinarioOrdenadoEnlazado (const ArbolBinarioOrdenadoEnlazado<G>& a)
 		{
-			*this = a;	
+			*this = a;
 
 			#ifndef NDEBUG
 				assert(*this == a);
-			#endif	
+			#endif
 		}
 
 		~ArbolBinarioOrdenadoEnlazado ()
@@ -163,26 +163,46 @@ namespace ed
 		{
 			_raiz = a._raiz;
 			_actual = a._actual;
-			_padre = a._padre;			
+			_padre = a._padre;
 
 			return *this;
 		}
 
 		bool insertar(const G &x)
 		{
-			// TODO
+			//? lo mismo que buscar - de hecho debo usarlo
+
 			return false;
 		}
 
 		void borrarArbol()
 		{
-			// TODO
+			#ifndef NDEBUG
+				assert(this->_raiz != NULL);
+			#endif
+
+			_actual = NULL;
+			_padre = NULL;
+			_raiz = NULL;
+
+			#ifndef NDEBUG
+				assert(this->_raiz == NULL);
+			#endif
 		}
 
 		bool borrar()
 		{
-			// TODO
-			return false;
+			#ifndef NDEBUG
+				assert(!estaVacio());
+			#endif
+
+			_actual = NULL;
+			_padre = NULL;
+			return true;
+
+			#ifndef NDEBUG
+				assert(estaVacio());
+			#endif
 		}
 
 		void recorridoPreOrden (OperadorNodo<G> &operador) const
@@ -200,10 +220,40 @@ namespace ed
 			// TODO
 		}
 
-		bool buscar(const G& x) const
+		bool buscar(const G& x) const	//Lo tengo en el cuaderno de teoria
 		{
-			// TODO
-			return false;
+			bool encontrado = false;
+			_actual = _raiz;
+			_padre = NULL;
+
+			while(_actual != NULL && !encontrado){
+				if(_actual->getInfo() > x){
+					_padre = _actual;
+					if(_actual->getIzquierdo()!=NULL){
+						_actual = _actual->getIzquierdo();
+					}
+					else{
+					_actual = NULL;
+					}
+				}
+				else if{
+					_padre = _actual;
+					if(_actual->getDerecho()!=NULL){
+						_actual = _actual->getDerecho();
+					}
+					else{
+						_actual = NULL;
+					}
+				}
+				else{
+					encontrado = true;
+				}
+			}
+			return encontrado;
+
+			#ifndef NDEBUG
+				assert((this->_actual)->getInfo() == x);
+			#endif
 		}
 
 		bool estaVacio() const
@@ -216,18 +266,30 @@ namespace ed
 
 		G raiz() const
 		{
-			// TODO
+			#ifndef NDEBUG
+				assert(!estaVacio());
+			#endif
+
+			return (this->_raiz)->getInfo();
 		}
 
 		bool existeActual() const
 		{
-			// TODO
-			return false;
+			#ifndef NDEBUG
+				assert(!estaVacio());
+			#endif
+
+			if(this->_actual == NULL){ return false; }
+			else{ return true; }
 		}
 
 		G actual() const
 		{
-			// TODO
+			#ifndef NDEBUG
+				assert(existeActual());
+			#endif
+
+			return (this->_actual)->getInfo();
 		}
 
 		/*!@}*/

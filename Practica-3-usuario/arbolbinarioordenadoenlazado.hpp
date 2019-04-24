@@ -225,15 +225,73 @@ namespace ed
 		{
 			#ifndef NDEBUG
 				assert(!estaVacio());
+				G oldActual = _actual->getInfo();
 			#endif
 
-			_actual = NULL;
-			_padre = NULL;
-			return true;
+			if(_actual->esHoja()){		//Si es nodo hoja
+				if(_actual == _raiz){
+					borrarArbol();
+				}
+				else{
+					if(_actual->getInfo() < _padre->getInfo()){	//Hijo izquierdo
+						_padre->setIzquierdo(NULL);
+					}
+					else{										//Hijo derecho
+						_padre->setDerecho(NULL);
+					}
+					_actual = _raiz;
+					_padre = NULL;
+				}
+			}
+			else{						//Si es un nodo rama
+				NodoArbolBinario * aux = _padre;
+				NodoArbolBinario * auxPadre = _actual;
+
+				if(aux->getDerecho() != NULL){
+					auxPadre = aux;
+					aux = aux->getDerecho();
+
+					//Seleccionar el  mayor inmediato si existe
+					while(aux->getIzquierdo() != NULL){
+						auxPadre = aux;
+						aux = aux->getIzquierdo();
+					}
+
+					//Si el mayor inmediato tiene hijo derecho, se le engancha a su padre
+					if(aux->getInfo() < auxPadre->getInfo()){
+						auxPadre->setIzquierdo(aux->getDerecho());
+					}
+					//Caso donde el mayor inmediato es el hijo derecho del que se quiere borrar
+					else{
+						auxPadre->setDerecho(aux->getDerecho());
+					}
+				}
+				else{
+					auxPadre = aux;
+					aux = aux->getIzquierdo();
+
+					//Seleccionar el  menor inmediato
+					while(aux->getDerecho() != NULL){
+						auxPadre = aux;
+						aux = aux->getDerecho();
+					}
+					//Se le engancha su hijo izquierdo a su padre
+					if(aux->getInfo() > auxPadre->getInfo()){
+						auxPadre->setDerecho(aux->getIzquierdo());
+					}
+					//Caso donde el menor inmediato es el hijo izquierdo del que se quiere borrar
+					else{
+						auxPadre->setIzquierdo(aux->getIzquierdo());
+					}
+				}
+				_actual->setInfo(aux->getInfo());
+			}
 
 			#ifndef NDEBUG
-				assert(estaVacio());
+				assert(!buscar(oldActual));
 			#endif
+
+			return true;
 		}
 
 		void recorridoPreOrden (OperadorNodo<G> &operador) const

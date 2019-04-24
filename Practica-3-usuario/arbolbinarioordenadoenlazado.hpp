@@ -1,6 +1,6 @@
 #ifndef __ARBOLBINARIOORDENADO_HPP__
 #define __ARBOLBINARIOORDENADOENLAZADO_HPP__
-//ESTO REALMENTE ES UN .HPP. RECUERDA RENOMBRARLO ??
+
 #include <iostream>
 #include <cassert>
 #include "arbolbinarioordenado.hpp"
@@ -170,9 +170,40 @@ namespace ed
 
 		bool insertar(const G &x)
 		{
-			//? lo mismo que buscar - de hecho debo usarlo
+			bool insertado = false;
 
-			return false;
+			if(estaVacio()){
+				_raiz = new NodoArbolBinario(x);
+				_actual = _raiz;
+				insertado = true;
+			}
+
+			NodoArbolBinario * aux = _raiz;	//Para recorrer el árbol
+			while(!insertado){
+				if(x < aux->getInfo()){
+					if(aux->getIzquierdo() != NULL){
+						aux = aux->getIzquierdo();
+					}
+					else{
+						aux->setIzquierdo(new NodoArbolBinario(x));
+						insertado = true;
+					}
+				}
+				else if (x > aux->getInfo()) {
+					if(aux->getDerecho() != NULL){
+						aux = aux->getDerecho();
+					}
+					else{
+						aux->setDerecho(new NodoArbolBinario(x));
+						insertado = true;
+					}
+				}
+				else{	//Este es el caso en el que x sea igual al aux
+					return false;
+				}
+			}
+
+			return insertado;
 		}
 
 		void borrarArbol()
@@ -207,21 +238,25 @@ namespace ed
 
 		void recorridoPreOrden (OperadorNodo<G> &operador) const
 		{
-			// TODO
+			_raiz->recorridoPreOrden(operador);
 		}
 
 		void recorridoPostOrden (OperadorNodo<G> &operador) const
 		{
-			// TODO
+			_raiz->recorridoPostOrden(operador);
 		}
 
 		void recorridoInOrden (OperadorNodo<G> &operador) const
 		{
-			// TODO
+			_raiz->recorridoInOrden(operador);
 		}
 
 		bool buscar(const G& x) const	//Lo tengo en el cuaderno de teoria
 		{
+			//Para recuperar sus valores en caso de no encontrar el elemento buscado
+			NodoArbolBinario * actualCopia = _actual;
+			NodoArbolBinario * padreCopia = _padre;
+
 			bool encontrado = false;
 			_actual = _raiz;
 			_padre = NULL;
@@ -249,6 +284,11 @@ namespace ed
 					encontrado = true;
 				}
 			}
+			if(!encontrado){
+				_actual = actualCopia;
+				_padre = padreCopia;
+			}
+
 			return encontrado;
 
 			#ifndef NDEBUG

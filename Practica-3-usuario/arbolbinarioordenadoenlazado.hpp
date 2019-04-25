@@ -309,7 +309,7 @@ namespace ed
 			_raiz->recorridoInOrden(operador);
 		}
 
-		bool buscar(const G& x) const	//Lo tengo en el cuaderno de teoria
+		bool buscar(const G& x) 	//Lo tengo en el cuaderno de teoria
 		{
 			//Para recuperar sus valores en caso de no encontrar el elemento buscado
 			NodoArbolBinario * actualCopia = _actual;
@@ -329,7 +329,7 @@ namespace ed
 					_actual = NULL;
 					}
 				}
-				else if{
+				else if(_actual->getInfo() < x){
 					_padre = _actual;
 					if(_actual->getDerecho()!=NULL){
 						_actual = _actual->getDerecho();

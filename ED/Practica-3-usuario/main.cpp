@@ -18,13 +18,11 @@ int main()
     EscribirNodo<Persona> op;
     int opcion;
 
-
-    cout << BIYELLOW;
-    cout << "Test ArbolBinarioOrdenadoEnlazado:\n";
-    cout << "\n" << RESET;
-
     while (opcion != 0) {
-        cout << CLEAR_SCREEN;
+        cout << "\n";
+        cout << BIYELLOW;
+        cout << "Test ArbolBinarioOrdenadoEnlazado:\n";
+        cout << "\n" << RESET;
 
         cout << BIBLUE;
         cout << "\t[1] Insertar personas en el arbol\n";
@@ -55,8 +53,10 @@ int main()
                   a.insertar(generarDatosPersonales());
                 }
 
-                cout << BIGREEN << "DONE. Pulse intro para continuar" << RESET;
-                getchar();
+                cout << BIGREEN << "DONE. Pulse intro para continuar\n" << RESET;
+                cin.ignore();
+                cin.get();
+                cout << CLEAR_SCREEN;
             }break;
 
             case 2:{            //Buscar una persona
@@ -74,16 +74,25 @@ int main()
                     if(a.buscar(p)){
                         cout << BIGREEN << "Persona encontrada:\n" << RESET;
                         cout << a.actual() << '\n';
+                        cout << BIGREEN << "DONE. Pulse intro para continuar\n" << RESET;
+                        cin.ignore();
+                        cin.get();
+                        cout << CLEAR_SCREEN;
                     }
                     else{
-                        cout << RED << "Error. La persona buscada no se encuentra en el arbol\n" << RESET;
+                        cout << BIRED << "Error. La persona buscada no se encuentra en el arbol\n";
+                        cout << "Pulse intro para continuar\n" << RESET;
+                        cin.ignore();
+                        cin.get();
+                        cout << CLEAR_SCREEN;
                     }
-
-                    cout << BIGREEN << "DONE. Pulse intro para continuar" << RESET;
-                    getchar();
                 }
                 else{
-                    cout << BIRED << "Error. Introduzca antes elementos en el arbol" << RESET;
+                    cout << BIRED << "Error. Introduzca antes elementos en el arbol\n";
+                    cout << "Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
                 }
             }break;
 
@@ -93,7 +102,7 @@ int main()
 
                 if(! a.estaVacio()){
                     int opcion = -1;
-                    while((opcion != 0) && (opcion != 1) && (opcion != 2)){
+                    while((opcion != 1) && (opcion != 2) && (opcion != 3)){
                       cout << BIGREEN << "Seleccione el método para mostrar:\n" << RESET;
                       cout << "\t[1] Pre-Orden\n";
                       cout << "\t[2] In-Orden\n";
@@ -101,6 +110,7 @@ int main()
                       cout << "\n";
                       cout << "\tOpcion = ";
                       cin >> opcion;
+                      cout << "\n";
                     }
 
                     switch (opcion)
@@ -118,11 +128,17 @@ int main()
                         break;
                     }
 
-                    cout << BIGREEN << "DONE. Pulse intro para continuar" << RESET;
-                    getchar();
+                    cout << BIGREEN << "DONE. Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
                 }
                 else{
-                    cout << BIRED << "Error. Introduzca antes elementos en el arbol" << RESET;
+                    cout << BIRED << "Error. Introduzca antes elementos en el arbol\n";
+                    cout << "Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
                 }
             }break;
 
@@ -140,37 +156,66 @@ int main()
                     p.dni(auxDni);
                     if(a.buscar(p)){
                         if(a.borrar()){
-                            cout << BIGREEN << "Persona borrada" << RESET;
+                            cout << BIGREEN << "Persona borrada\n";
+                            cout << "DONE. Pulse intro para continuar\n" << RESET;
+                            cin.ignore();
+                            cin.get();
+                            cout << CLEAR_SCREEN;
                         }
                         else{
-                            cout << BIRED << "Error al borrar" << RESET;
+                            cout << BIRED << "Error al borrar\n";
+                            cout << "Pulse intro para continuar\n" << RESET;
+                            cin.ignore();
+                            cin.get();
                         }
                     }
                     else{
-                        cout << "La persona a borrar no esta en el arbol";
+                        cout << BIRED << "La persona a borrar no esta en el arbol\n";
+                        cout << "Pulse intro para continuar\n" << RESET;
+                        cin.ignore();
+                        cin.get();
+                        cout << CLEAR_SCREEN;
                     }
-
-                    cout << BIGREEN << "DONE. Pulse intro para continuar" << RESET;
-                    getchar();
                 }
                 else{
-                    cout << BIRED << "Error. Introduzca antes elementos en el arbol" << RESET;
+                    cout << BIRED << "Error. Introduzca antes elementos en el arbol\n";
+                    cout << "Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
                 }
             }break;
 
             case 5:{            //Borrar todas las personas
                 cout << CLEAR_SCREEN;
                 cout << BIBLUE << "Borrar todas las personas\n" << RESET;
-                a.borrarArbol();
 
-                cout << BIGREEN << "DONE. Pulse intro para continuar" << RESET;
-                getchar();
+                if(! a.estaVacio()){
+                    a.borrarArbol();
+                    cout << BIGREEN << "DONE. Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
+                }
+                else{
+                    cout << BIRED << "Error. Introduzca antes elementos en el arbol\n";
+                    cout << "Pulse intro para continuar\n" << RESET;
+                    cin.ignore();
+                    cin.get();
+                    cout << CLEAR_SCREEN;
+                }
+            }break;
+
+            case 0:{
+                cout << BIRED << "Cerrando programa...\n" << RESET;
             }break;
 
             default:
-                cout << BIRED << "Error. Opcion no valida, seleccione una del menu";
-                cout << "Pulse intro para continuar" << RESET;
-                getchar();
+                cout << BIRED << "Error. Opcion no valida, seleccione una del menu\n";
+                cout << "Pulse intro para continuar\n" << RESET;
+                cin.ignore();
+                cin.get();
+                cout << CLEAR_SCREEN;
             break;
         }
     }

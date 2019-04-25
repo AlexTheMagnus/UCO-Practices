@@ -35,7 +35,7 @@ namespace ed
 		public:
 			NodoArbolBinario (const G &info)
 			{
-				setInfo(&info);
+				setInfo(info);
 				setIzquierdo(NULL);
 				setDerecho(NULL);
 			}
@@ -73,23 +73,23 @@ namespace ed
 
 			void recorridoPreOrden (OperadorNodo<G> &operador) const
 			{
-				operador.aplicar();
-				getIzquierdo()->recorridoPreOrden(&operador);
-				getDerecho()->recorridoPreOrden(&operador);
+				operador.aplicar(getInfo());
+				getIzquierdo()->recorridoPreOrden(operador);
+				getDerecho()->recorridoPreOrden(operador);
 			}
 
 			void recorridoPostOrden (OperadorNodo<G> &operador) const
 			{
-				getIzquierdo()->recorridoPreOrden(&operador);
-				getDerecho()->recorridoPreOrden(&operador);
-				operador.aplicar();
+				getIzquierdo()->recorridoPreOrden(operador);
+				getDerecho()->recorridoPreOrden(operador);
+				operador.aplicar(getInfo());
 			}
 
 			void recorridoInOrden (OperadorNodo<G> &operador) const
 			{
-				getIzquierdo()->recorridoPreOrden(&operador);
-				operador.aplicar();
-				getDerecho()->recorridoPreOrden(&operador);
+				getIzquierdo()->recorridoPreOrden(operador);
+				operador.aplicar(getInfo());
+				getDerecho()->recorridoPreOrden(operador);
 			}
 
 			/*!\brief Modificadores. */

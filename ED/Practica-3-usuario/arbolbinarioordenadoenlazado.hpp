@@ -74,22 +74,22 @@ namespace ed
 			void recorridoPreOrden (OperadorNodo<G> &operador) const
 			{
 				operador.aplicar(getInfo());
-				getIzquierdo()->recorridoPreOrden(operador);
-				getDerecho()->recorridoPreOrden(operador);
+				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPreOrden(operador);
+				if(getDerecho() != NULL) getDerecho()->recorridoPreOrden(operador);
 			}
 
 			void recorridoPostOrden (OperadorNodo<G> &operador) const
 			{
-				getIzquierdo()->recorridoPreOrden(operador);
-				getDerecho()->recorridoPreOrden(operador);
+				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPreOrden(operador);
+				if(getDerecho() != NULL) getDerecho()->recorridoPreOrden(operador);
 				operador.aplicar(getInfo());
 			}
 
 			void recorridoInOrden (OperadorNodo<G> &operador) const
 			{
-				getIzquierdo()->recorridoPreOrden(operador);
+				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPreOrden(operador);
 				operador.aplicar(getInfo());
-				getDerecho()->recorridoPreOrden(operador);
+				if(getDerecho() != NULL) getDerecho()->recorridoPreOrden(operador);
 			}
 
 			/*!\brief Modificadores. */

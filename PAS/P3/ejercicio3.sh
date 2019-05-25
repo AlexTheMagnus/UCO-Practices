@@ -16,7 +16,7 @@ else
         umbral2=100000
     fi
 
-    if [[ -d "pequenos" || -d "medianos" || -d "grandes" ]]; then
+    if [ -d "pequenos" ] || [ -d "medianos" ] || [ -d "grandes" ]; then
         echo "Las carpetas de salida ya existen, se va a proceder a borrarlas..."
         rm -rf pequenos medianos grandes
         mkdir pequenos medianos grandes

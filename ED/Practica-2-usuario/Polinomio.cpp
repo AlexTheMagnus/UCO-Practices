@@ -15,7 +15,7 @@ ed::Polinomio::Polinomio(){
 	ed::Monomio m(0.0, 0);
 	this->getVector().clear();
 	this->getVector().push_back(m);
-	
+
 	#ifndef NDBUG
 		assert(esNulo());
 	#endif
@@ -89,7 +89,7 @@ ed::Monomio & ed::Polinomio::getMonomio(int n) const {
 			}
 		}
 	}
-	
+
 	//El monomio de grado n no existe
 	ed::Monomio *monoaux = new ed::Monomio();
 	monoaux->setCoeficiente(0.0);
@@ -113,6 +113,7 @@ void ed::Polinomio::ordenarPolinomio(){
 		auxpoli.getVector().push_back(*mayor);
 		this->getVector().erase(mayor);
 	}
+	//this->getVector()=auxpoli.getVector();
 }
 
 
@@ -420,7 +421,7 @@ void ed::Polinomio::escribirPolinomio() const
 	for (std::vector<ed::Monomio>::iterator it = this->getVector().begin() ; it != this->getVector().end(); ++it){
 		it->escribirMonomio();
 		std::cout << ' ';
-	}	
+	}
 	//? std::cout << '\n';
 
 }
@@ -432,10 +433,10 @@ void ed::Polinomio::escribirPolinomio() const
 double ed::Polinomio::calcularValor(double &x) const
 {
 	double total = 0.0;
-	
+
 	for (std::vector<ed::Monomio>::iterator it = this->getVector().begin() ; it != this->getVector().end(); ++it){
 		total += it->calcularValor(x);
-	}	
+	}
 
 	return total;
 }
@@ -444,7 +445,7 @@ double ed::Polinomio::calcularValor(double &x) const
 
 ed::Polinomio & ed::Polinomio::Potencia(int &x){
 	ed::Polinomio *nuevo = new ed::Polinomio();
-	
+
 	for(std::vector<ed::Monomio>::iterator it = this->getVector().begin() ; it != this->getVector().end(); ++it){
 		*nuevo += it->Potencia(x);
 	}

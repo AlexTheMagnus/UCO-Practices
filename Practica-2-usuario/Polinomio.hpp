@@ -41,9 +41,9 @@ class Polinomio: public ed::PolinomioInterfaz
 
   //! \name Observadores: funciones de consulta de la clase Polinomio
 
-	bool esNulo() const;
-  
-  inline int getGrado() const {return this->getVector().front().getGrado();}; 
+  bool esNulo() const;
+
+  inline int getGrado() const {return this->getVector().front().getGrado();};
 
   int getNumeroMonomios() const;
 
@@ -80,7 +80,7 @@ class Polinomio: public ed::PolinomioInterfaz
 
 	// COMPLETAR EL RESTO DE OPERADORES
     Polinomio & operator+=(ed::Monomio const &m);
-    
+
     Polinomio & operator+=(double const &x);
 
     Polinomio & operator-=(Polinomio const &p);

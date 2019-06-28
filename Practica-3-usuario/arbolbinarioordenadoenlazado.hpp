@@ -244,10 +244,10 @@ namespace ed
 				}
 			}
 			else{						//Si es un nodo rama
-				NodoArbolBinario * aux = _padre;
-				NodoArbolBinario * auxPadre = _actual;
+				NodoArbolBinario * aux = _actual;   //Estaba "aux = _padre" y viceversa, creo que los puse al reves. Ahora estaria arreglado
+				NodoArbolBinario * auxPadre = _padre;
 
-				if(aux->getDerecho() != NULL){
+				if(aux->getDerecho() != NULL){	//Si tiene hijo derecho, buscar el mayor inmediato
 					auxPadre = aux;
 					aux = aux->getDerecho();
 
@@ -266,7 +266,7 @@ namespace ed
 						auxPadre->setDerecho(aux->getDerecho());
 					}
 				}
-				else{
+				else{						//Si no, busca el menor inmediato
 					auxPadre = aux;
 					aux = aux->getIzquierdo();
 

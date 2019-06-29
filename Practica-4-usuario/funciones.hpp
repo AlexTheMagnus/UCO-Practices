@@ -44,7 +44,6 @@ bool cargarGrafo(Grafo<G_Nodo, G_Lado> * &g)
     cout << "Fichero de las etiquetas: ";
     cin >> ficheroEtiquetas;
 
-    std::cout << "fufo1" << '\n';
     // TODO
     //Calculo el numero de nodos para reservar la memoria necesaria para la matriz
     inputFile.open(ficheroEtiquetas.c_str());
@@ -52,10 +51,10 @@ bool cargarGrafo(Grafo<G_Nodo, G_Lado> * &g)
         nNodos++;
     }
     inputFile.close();
-    std::cout << "fufo2" << '\n';
+
     //Reservo la memoria
     g->ReservaMemoria(nNodos);
-    std::cout << "fufo3" << '\n';
+
     //Cargo las valores del grafo
     //Primero, los de los nodos
     inputFile.open(ficheroEtiquetas.c_str());
@@ -66,7 +65,7 @@ bool cargarGrafo(Grafo<G_Nodo, G_Lado> * &g)
         index++;
     }
     inputFile.close();
-    std::cout << "fufo4" << '\n';
+
     //Ahora, los de los lados
     inputFile.open(ficheroMatriz.c_str());
     for(int i = 0; i < g->getNodeNumber(); i++){

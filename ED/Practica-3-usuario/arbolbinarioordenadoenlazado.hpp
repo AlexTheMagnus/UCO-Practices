@@ -80,16 +80,16 @@ namespace ed
 
 			void recorridoPostOrden (OperadorNodo<G> &operador) const
 			{
-				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPreOrden(operador);
-				if(getDerecho() != NULL) getDerecho()->recorridoPreOrden(operador);
+				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPostOrden(operador);
+				if(getDerecho() != NULL) getDerecho()->recorridoPostOrden(operador);
 				operador.aplicar(getInfo());
 			}
 
 			void recorridoInOrden (OperadorNodo<G> &operador) const
 			{
-				if(getIzquierdo() != NULL) getIzquierdo()->recorridoPreOrden(operador);
+				if(getIzquierdo() != NULL) getIzquierdo()->recorridoInOrden(operador);
 				operador.aplicar(getInfo());
-				if(getDerecho() != NULL) getDerecho()->recorridoPreOrden(operador);
+				if(getDerecho() != NULL) getDerecho()->recorridoInOrden(operador);
 			}
 
 			/*!\brief Modificadores. */

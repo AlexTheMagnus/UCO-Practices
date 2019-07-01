@@ -244,7 +244,7 @@ namespace ed
 				}
 			}
 			else{						//Si es un nodo rama
-				NodoArbolBinario * aux = _actual;   //Estaba "aux = _padre" y viceversa, creo que los puse al reves. Ahora estaria arreglado
+				NodoArbolBinario * aux = _actual;   //Correccion: Estaba "aux = _padre" y "auxPadre = _actual", creo que los puse al reves. Ahora estaria arreglado
 				NodoArbolBinario * auxPadre = _padre;
 
 				if(aux->getDerecho() != NULL){	//Si tiene hijo derecho, buscar el mayor inmediato

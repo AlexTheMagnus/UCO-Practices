@@ -1,0 +1,3 @@
+[submodule "Second_year/ED"]
+	path = Second_year/ED
+	url = git@github.com:AlexTheMagnus/ED.git

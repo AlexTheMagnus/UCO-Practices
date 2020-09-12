@@ -1,3 +1,21 @@
 [submodule "Second_year/ED"]
 	path = Second_year/ED
 	url = git@github.com:AlexTheMagnus/ED.git
+[submodule "Second_year/SO"]
+	path = Second_year/SO
+	url = git@github.com:AlexTheMagnus/SO.git
+[submodule "Second_year/POO"]
+	path = Second_year/POO
+	url = git@github.com:AlexTheMagnus/POO.git
+[submodule "Second_year/PAS"]
+	path = Second_year/PAS
+	url = git@github.com:AlexTheMagnus/PAS.git
+[submodule "Second_year/BD"]
+	path = Second_year/BD
+	url = git@github.com:AlexTheMagnus/BD.git
+[submodule "Second_year/Practicas-IS"]
+	path = Second_year/Practicas-IS
+	url = git@github.com:Pablorg99/Practicas-IS.git
+[submodule "Second_year/SIN/GEMS"]
+	path = Second_year/SIN/GEMS
+	url = git@github.com:AlexTheMagnus/GEMS.git

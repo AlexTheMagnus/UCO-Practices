@@ -19,3 +19,21 @@
 [submodule "Second_year/SIN/GEMS"]
 	path = Second_year/SIN/GEMS
 	url = git@github.com:AlexTheMagnus/GEMS.git
+[submodule "Third_year/Redes-Practicas"]
+	path = Third_year/Redes-Practicas
+	url = git@github.com:janthonyo/Redes-Practicas.git
+[submodule "Third_year/IW/N2W_Front"]
+	path = Third_year/IW/N2W_Front
+	url = git@github.com:Need2Watch/N2W_Front.git
+[submodule "Third_year/IW/N2W_Back"]
+	path = Third_year/IW/N2W_Back
+	url = git@github.com:Need2Watch/N2W_Back.git
+[submodule "Third_year/IW/GSASD"]
+	path = Third_year/IW/GSASD
+	url = git@github.com:AlexTheMagnus/GSASD.git
+[submodule "Third_year/GSASD"]
+	path = Third_year/GSASD
+	url = git@github.com:AlexTheMagnus/GSASD.git
+[submodule "Third_year/ISSBC"]
+	path = Third_year/ISSBC
+	url = git@github.com:AlexTheMagnus/ISSBC.git

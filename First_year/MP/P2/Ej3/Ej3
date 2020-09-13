@@ -1,0 +1,7 @@
+
+struct Ficha_jugador{
+  char nombre [50];
+  int dorsal;
+  float peso;
+  int estatura;
+  }

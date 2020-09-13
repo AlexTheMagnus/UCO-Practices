@@ -1,0 +1,30 @@
+--4.1
+set serveroutput on;
+DECLARE
+  salida votantes%rowtype;
+  mydni NUMBER:= 30983712;
+BEGIN
+  select * into salida from votantes where dni=mydni;
+  dbms_output.put_line(salida.nombrecompleto||' con correo: '||salida.email);
+END;
+
+--4.2
+set serveroutput on;
+DECLARE
+  email votantes.email%type;
+  nombre votantes.nombrecompleto%type;
+  mydni NUMBER:= 30983712;
+BEGIN
+  select email, substr(nombrecompleto,1,instr(nombrecompleto,' ')) into email, nombre from votantes where dni=mydni;
+  dbms_output.put_line(nombre||' con correo: '||email);
+END;
+
+--4.3
+set serveroutput on;
+DECLARE
+  apellidos votantes.nombrecompleto%type;
+  mydni NUMBER:= 30983712;
+BEGIN
+  select substr(nombrecompleto,instr(nombrecompleto,' '),length(nombrecompleto)) into apellidos from votantes where dni=mydni;
+  dbms_output.put_line('Pepe'||apellidos);
+END;

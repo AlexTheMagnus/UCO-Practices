@@ -1,0 +1,28 @@
+CREATE Table prueba
+	(edad Number(2,0),
+	nombre varchar2(40)
+	);
+
+INSERT INTO prueba
+	VALUES (23, 'Perez Perez, Antonio');
+
+INSERT INTO prueba
+	VALUES (19, 'Marcos Doblaos, Pepe');
+
+INSERT INTO prueba
+	VALUES (20, 'Luque Leon, Alejandro');
+
+SELECT * 
+	FROM prueba;
+
+SELECT * 
+	FROM prueba 
+	WHERE edad=23;
+
+DELETE FROM prueba;
+
+DROP Table prueba;
+
+UPDATE prueba
+	SET edad=46
+	WHERE edad=23;

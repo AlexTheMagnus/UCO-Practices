@@ -1,0 +1,25 @@
+--5.1
+set serveroutput on;
+DECLARE
+  CURSOR c IS select *
+  from VOTANTES v
+  where v.LOCALIDAD + 1 = (SUBSTR(v.DNI,-1));
+  --cont NUMBER := 0;
+  votante votantes%rowtype;
+BEGIN
+  open c;
+  LOOP
+    FETCH c INTO votante;
+    EXIT WHEN c%NOTFOUND;
+    dbms_output.put_line(votante.nombrecompleto);
+  END LOOP;
+    dbms_output.put_line('Hay un total de ' || c%ROWCOUNT || ' votantes');
+END;
+
+---Otra forma de hacerlo-------------------------------------
+  FOR num_row IN c LOOP
+  dbms_output.put_line(num_row.nombrecompleto);
+  cont := c%ROWCOUNT;
+  END LOOP;
+  dbms_output.put_line('Hay un total de ' || cont || ' votantes');
+-------------------------------------------------------------

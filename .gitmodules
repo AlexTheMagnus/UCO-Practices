@@ -37,3 +37,6 @@
 [submodule "Third_year/ISSBC"]
 	path = Third_year/ISSBC
 	url = git@github.com:AlexTheMagnus/ISSBC.git
+[submodule "Third_year/PW"]
+	path = Third_year/PW
+	url = git@github.com:AlexTheMagnus/PW.git

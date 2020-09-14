@@ -1,0 +1,41 @@
+select IDPARTIDO, SIGLAS, PRESIDENTE
+  from partidos;
+  
+select IDPARTIDO "ID", SIGLAS, PRESIDENTE
+  from partidos;
+  
+select provincia, comunidad
+  from provincias, localidades;
+
+select provincias.NOMBRE "PROVINCIA", provincias.NUMEROHABITANTES, localidades.NOMBRE "LOCALIDAD", localidades.NUMEROHABITANTES
+  from provincias, localidades;
+  
+select p.NOMBRE "PROVINCIA", p.NUMEROHABITANTES, l.NOMBRE "LOCALIDAD", l.NUMEROHABITANTES
+  from provincias p, localidades l;
+
+describe eventos;
+
+drop table votantes cascade CONSTRAINTS;
+
+--5
+select *
+  from votantes;
+
+insert into votantes
+  values (30653845, 'Maria Gonzales Ramirez', 'Doctorado', 'Activo', 'goram2telefonica.es', 1, '21/08/89', 677544822);
+  
+--6
+select *
+  from votantes;
+
+--7
+delete from votantes where dni=30653845;
+
+--9
+select e.NOMBRE, e.TIPO, e.FECHA
+  from eventos e;
+  
+--10 
+select e.NOMBRE||' de tipo '||e.TIPO "Convocatoria"
+  from eventos e;
+  

@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>bcMonitorizacionPacientes</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;bcMonitorizacionPacientes
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="bcMonitorizacionPacientes-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="bcMonitorizacionPacientes-module.html">Module bcMonitorizacionPacientes</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">        Modulo encargado de definir la base de conocimiento del dominio de los</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">        pacientes</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">        :author: Michael Castillo Polo y Luis Miguel L&#243;pez Coleto</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">        :date: 10/06/2015</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-name">__docformat__</tt> <tt class="py-op">=</tt> <tt class="py-string">"restructuredtext"</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module bcMonitorizacion=bcMonitorizacion-module.html"><a title="bcMonitorizacion" class="py-name" href="#" onclick="return doclink('link-0', 'bcMonitorizacion', 'link-0');">bcMonitorizacion</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-comment"># DEFINICION DE LA BASE DE CONOCIMIENTO</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: tensi&#243;n sist&#243;lica</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones de la tensi&#243;n sist&#243;lica</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-comment">#       </tt> </tt>
+<a name="tensionSistolica"></a><div id="tensionSistolica-def"><a name="L23"></a><tt class="py-lineno"> 23</tt> <a class="py-toggle" href="#" id="tensionSistolica-toggle" onclick="return toggle('tensionSistolica');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.tensionSistolica-class.html">tensionSistolica</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tensionSistolica-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="tensionSistolica-expanded"><a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es la tensi&#243;n sist&#243;lica donde la unidad es mmHg y la norma </tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    esta por debajo de 140</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="tensionSistolica.__init__"></a><div id="tensionSistolica.__init__-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="tensionSistolica.__init__-toggle" onclick="return toggle('tensionSistolica.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.tensionSistolica-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tensionSistolica.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="tensionSistolica.__init__-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt id="link-1" class="py-name" targets="Class bcMonitorizacion.Parametro=bcMonitorizacion.Parametro-class.html"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-1', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Method bcMonitorizacion.Hallazgo.__init__()=bcMonitorizacion.Hallazgo-class.html#__init__,Method bcMonitorizacion.Norma.__init__()=bcMonitorizacion.Norma-class.html#__init__,Method bcMonitorizacion.Parametro.__init__()=bcMonitorizacion.Parametro-class.html#__init__,Method bcMonitorizacionCoche.Aceite.__init__()=bcMonitorizacionCoche.Aceite-class.html#__init__,Method bcMonitorizacionCoche.GrosorNeumatico.__init__()=bcMonitorizacionCoche.GrosorNeumatico-class.html#__init__,Method bcMonitorizacionCoche.PresionNeumatica.__init__()=bcMonitorizacionCoche.PresionNeumatica-class.html#__init__,Method bcMonitorizacionCoche.Refrigerante.__init__()=bcMonitorizacionCoche.Refrigerante-class.html#__init__,Method bcMonitorizacionCoche.Revoluciones.__init__()=bcMonitorizacionCoche.Revoluciones-class.html#__init__,Method bcMonitorizacionCoche.Temperatura.__init__()=bcMonitorizacionCoche.Temperatura-class.html#__init__,Method bcMonitorizacionComputador.CPU.__init__()=bcMonitorizacionComputador.CPU-class.html#__init__,Method bcMonitorizacionComputador.memoriaRAM.__init__()=bcMonitorizacionComputador.memoriaRAM-class.html#__init__,Method bcMonitorizacionComputador.tarjetaGrafica.__init__()=bcMonitorizacionComputador.tarjetaGrafica-class.html#__init__,Method bcMonitorizacionComputador.tarjetaRed.__init__()=bcMonitorizacionComputador.tarjetaRed-class.html#__init__,Method bcMonitorizacionComputador.temperatura.__init__()=bcMonitorizacionComputador.temperatura-class.html#__init__,Method bcMonitorizacionPacientes.frecuenciaCardiaca.__init__()=bcMonitorizacionPacientes.frecuenciaCardiaca-class.html#__init__,Method bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__()=bcMonitorizacionPacientes.frecuenciaRespiratoria-class.html#__init__,Method bcMonitorizacionPacientes.nivelOxigeno.__init__()=bcMonitorizacionPacientes.nivelOxigeno-class.html#__init__,Method bcMonitorizacionPacientes.temperatura.__init__()=bcMonitorizacionPacientes.temperatura-class.html#__init__,Method bcMonitorizacionPacientes.tensionDiastolica.__init__()=bcMonitorizacionPacientes.tensionDiastolica-class.html#__init__,Method bcMonitorizacionPacientes.tensionSistolica.__init__()=bcMonitorizacionPacientes.tensionSistolica-class.html#__init__,Method bcMonitorizacionPlanta.DioxidoCarbono.__init__()=bcMonitorizacionPlanta.DioxidoCarbono-class.html#__init__,Method bcMonitorizacionPlanta.Humedad.__init__()=bcMonitorizacionPlanta.Humedad-class.html#__init__,Method bcMonitorizacionPlanta.NivelLuz.__init__()=bcMonitorizacionPlanta.NivelLuz-class.html#__init__,Method bcMonitorizacionPlanta.Temperatura.__init__()=bcMonitorizacionPlanta.Temperatura-class.html#__init__,Method ckModMonitorizacion.Comparar.__init__()=ckModMonitorizacion.Comparar-class.html#__init__,Method ckModMonitorizacion.Especificar.__init__()=ckModMonitorizacion.Especificar-class.html#__init__,Method ckModMonitorizacion.FuncionTransferencia.__init__()=ckModMonitorizacion.FuncionTransferencia-class.html#__init__,Method ckModMonitorizacion.Inferencia.__init__()=ckModMonitorizacion.Inferencia-class.html#__init__,Method ckModMonitorizacion.MetodoMonitorizacion.__init__()=ckModMonitorizacion.MetodoMonitorizacion-class.html#__init__,Method ckModMonitorizacion.Recibir.__init__()=ckModMonitorizacion.Recibir-class.html#__init__,Method ckModMonitorizacion.Seleccionar.__init__()=ckModMonitorizacion.Seleccionar-class.html#__init__,Method ckVtsMonitorizacion.MonitorizacionDlg.__init__()=ckVtsMonitorizacion.MonitorizacionDlg-class.html#__init__"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-2', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Tension Sistolica'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">'mmHg'</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">         </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-3" class="py-name" targets="Class bcMonitorizacion.Norma=bcMonitorizacion.Norma-class.html"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-3', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">140</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&lt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: tensi&#243;n diast&#243;lica</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones de la tensi&#243;n diast&#243;lica</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-comment">#    </tt> </tt>
+<a name="tensionDiastolica"></a><div id="tensionDiastolica-def"><a name="L38"></a><tt class="py-lineno"> 38</tt> <a class="py-toggle" href="#" id="tensionDiastolica-toggle" onclick="return toggle('tensionDiastolica');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.tensionDiastolica-class.html">tensionDiastolica</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tensionDiastolica-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="tensionDiastolica-expanded"><a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es la tensi&#243;n diast&#243;lica donde la unidad es mmHg y la norma </tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    esta por debajo de 90</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="tensionDiastolica.__init__"></a><div id="tensionDiastolica.__init__-def"><a name="L43"></a><tt class="py-lineno"> 43</tt> <a class="py-toggle" href="#" id="tensionDiastolica.__init__-toggle" onclick="return toggle('tensionDiastolica.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.tensionDiastolica-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="tensionDiastolica.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="tensionDiastolica.__init__-expanded"><a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt id="link-4" class="py-name"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-4', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-5', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Tension Diastolica'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">'mmHg'</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">         </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-6" class="py-name"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-6', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">90</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&lt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: frecuencia card&#237;aca</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones de la frecuencia card&#237;aca</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-comment">#    </tt> </tt>
+<a name="frecuenciaCardiaca"></a><div id="frecuenciaCardiaca-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="frecuenciaCardiaca-toggle" onclick="return toggle('frecuenciaCardiaca');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.frecuenciaCardiaca-class.html">frecuenciaCardiaca</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="frecuenciaCardiaca-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="frecuenciaCardiaca-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es la frecuencia cardiaca donde la unidad es puls/min y </tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    la norma esta por debajo de 100</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="frecuenciaCardiaca.__init__"></a><div id="frecuenciaCardiaca.__init__-def"><a name="L58"></a><tt class="py-lineno"> 58</tt> <a class="py-toggle" href="#" id="frecuenciaCardiaca.__init__-toggle" onclick="return toggle('frecuenciaCardiaca.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.frecuenciaCardiaca-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="frecuenciaCardiaca.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="frecuenciaCardiaca.__init__-expanded"><a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">        <tt id="link-7" class="py-name"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-7', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-8', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Frecuencia Cardiaca'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">'puls/min'</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">         </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-9" class="py-name"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-9', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">100</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&lt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">         </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: frecuencia respiratoria</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones de la frecuencia respiratoria</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-comment">#    </tt> </tt>
+<a name="frecuenciaRespiratoria"></a><div id="frecuenciaRespiratoria-def"><a name="L68"></a><tt class="py-lineno"> 68</tt> <a class="py-toggle" href="#" id="frecuenciaRespiratoria-toggle" onclick="return toggle('frecuenciaRespiratoria');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.frecuenciaRespiratoria-class.html">frecuenciaRespiratoria</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="frecuenciaRespiratoria-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="frecuenciaRespiratoria-expanded"><a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es la frecuencia respiratoria donde la unidad es resp/min y </tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    la norma esta por debajo de 20</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="frecuenciaRespiratoria.__init__"></a><div id="frecuenciaRespiratoria.__init__-def"><a name="L73"></a><tt class="py-lineno"> 73</tt> <a class="py-toggle" href="#" id="frecuenciaRespiratoria.__init__-toggle" onclick="return toggle('frecuenciaRespiratoria.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.frecuenciaRespiratoria-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="frecuenciaRespiratoria.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="frecuenciaRespiratoria.__init__-expanded"><a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt id="link-10" class="py-name"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-10', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-11', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Frecuencia Respiratoria'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">'resp/min'</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">         </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-12" class="py-name"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-12', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">20</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&lt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: nivel de ox&#237;geno</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones del nivel de ox&#237;geno</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-comment">#    </tt> </tt>
+<a name="nivelOxigeno"></a><div id="nivelOxigeno-def"><a name="L83"></a><tt class="py-lineno"> 83</tt> <a class="py-toggle" href="#" id="nivelOxigeno-toggle" onclick="return toggle('nivelOxigeno');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.nivelOxigeno-class.html">nivelOxigeno</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="nivelOxigeno-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="nivelOxigeno-expanded"><a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es el nivel de ox&#237;geno donde la unidad es % y la norma esta </tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">    por encima de 95</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="nivelOxigeno.__init__"></a><div id="nivelOxigeno.__init__-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="nivelOxigeno.__init__-toggle" onclick="return toggle('nivelOxigeno.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.nivelOxigeno-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="nivelOxigeno.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="nivelOxigeno.__init__-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">        <tt id="link-13" class="py-name"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-13', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-14', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Nivel de Oxigeno'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">'%'</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">         </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-15" class="py-name"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-15', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">95</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&gt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-comment">##      Clase representativa de la constante vital: temperatura</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-comment">#       Define las especificaciones de la temperatura</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-comment">#    </tt> </tt>
+<a name="temperatura"></a><div id="temperatura-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="temperatura-toggle" onclick="return toggle('temperatura');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.temperatura-class.html">temperatura</a><tt class="py-op">(</tt><tt class="py-base-class">Parametro</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="temperatura-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="temperatura-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">    El par&#225;metro es la temperatura donde la unidad es &#176;C y la norma esta por </tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">    debajo de 37</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="temperatura.__init__"></a><div id="temperatura.__init__-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="temperatura.__init__-toggle" onclick="return toggle('temperatura.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes.temperatura-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="temperatura.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="temperatura.__init__-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt id="link-16" class="py-name"><a title="bcMonitorizacion.Parametro" class="py-name" href="#" onclick="return doclink('link-16', 'Parametro', 'link-1');">Parametro</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name"><a title="bcMonitorizacion.Hallazgo.__init__
+bcMonitorizacion.Norma.__init__
+bcMonitorizacion.Parametro.__init__
+bcMonitorizacionCoche.Aceite.__init__
+bcMonitorizacionCoche.GrosorNeumatico.__init__
+bcMonitorizacionCoche.PresionNeumatica.__init__
+bcMonitorizacionCoche.Refrigerante.__init__
+bcMonitorizacionCoche.Revoluciones.__init__
+bcMonitorizacionCoche.Temperatura.__init__
+bcMonitorizacionComputador.CPU.__init__
+bcMonitorizacionComputador.memoriaRAM.__init__
+bcMonitorizacionComputador.tarjetaGrafica.__init__
+bcMonitorizacionComputador.tarjetaRed.__init__
+bcMonitorizacionComputador.temperatura.__init__
+bcMonitorizacionPacientes.frecuenciaCardiaca.__init__
+bcMonitorizacionPacientes.frecuenciaRespiratoria.__init__
+bcMonitorizacionPacientes.nivelOxigeno.__init__
+bcMonitorizacionPacientes.temperatura.__init__
+bcMonitorizacionPacientes.tensionDiastolica.__init__
+bcMonitorizacionPacientes.tensionSistolica.__init__
+bcMonitorizacionPlanta.DioxidoCarbono.__init__
+bcMonitorizacionPlanta.Humedad.__init__
+bcMonitorizacionPlanta.NivelLuz.__init__
+bcMonitorizacionPlanta.Temperatura.__init__
+ckModMonitorizacion.Comparar.__init__
+ckModMonitorizacion.Especificar.__init__
+ckModMonitorizacion.FuncionTransferencia.__init__
+ckModMonitorizacion.Inferencia.__init__
+ckModMonitorizacion.MetodoMonitorizacion.__init__
+ckModMonitorizacion.Recibir.__init__
+ckModMonitorizacion.Seleccionar.__init__
+ckVtsMonitorizacion.MonitorizacionDlg.__init__" class="py-name" href="#" onclick="return doclink('link-17', '__init__', 'link-2');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">nombre</tt><tt class="py-op">=</tt><tt class="py-string">u'Temperatura'</tt><tt class="py-op">,</tt> <tt class="py-name">unidad</tt><tt class="py-op">=</tt><tt class="py-string">u'&#176;C'</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">norma</tt><tt class="py-op">=</tt><tt id="link-18" class="py-name"><a title="bcMonitorizacion.Norma" class="py-name" href="#" onclick="return doclink('link-18', 'Norma', 'link-3');">Norma</a></tt><tt class="py-op">(</tt><tt class="py-name">valor</tt><tt class="py-op">=</tt><tt class="py-number">37</tt><tt class="py-op">,</tt> <tt class="py-name">tipo</tt><tt class="py-op">=</tt><tt class="py-string">'&lt;='</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-comment"># FUNCIONES AUXILIARES</tt> </tt>
+<a name="clases"></a><div id="clases-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="clases-toggle" onclick="return toggle('clases');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="bcMonitorizacionPacientes-module.html#clases">clases</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="clases-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="clases-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-docstring">'''</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    Crea una lista de par&#225;metros de la base de conocimiento.</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-op">[</tt><tt id="link-19" class="py-name" targets="Class bcMonitorizacionPacientes.tensionSistolica=bcMonitorizacionPacientes.tensionSistolica-class.html"><a title="bcMonitorizacionPacientes.tensionSistolica" class="py-name" href="#" onclick="return doclink('link-19', 'tensionSistolica', 'link-19');">tensionSistolica</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-20" class="py-name" targets="Class bcMonitorizacionPacientes.tensionDiastolica=bcMonitorizacionPacientes.tensionDiastolica-class.html"><a title="bcMonitorizacionPacientes.tensionDiastolica" class="py-name" href="#" onclick="return doclink('link-20', 'tensionDiastolica', 'link-20');">tensionDiastolica</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-21" class="py-name" targets="Class bcMonitorizacionPacientes.frecuenciaCardiaca=bcMonitorizacionPacientes.frecuenciaCardiaca-class.html"><a title="bcMonitorizacionPacientes.frecuenciaCardiaca" class="py-name" href="#" onclick="return doclink('link-21', 'frecuenciaCardiaca', 'link-21');">frecuenciaCardiaca</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-22" class="py-name" targets="Class bcMonitorizacionPacientes.frecuenciaRespiratoria=bcMonitorizacionPacientes.frecuenciaRespiratoria-class.html"><a title="bcMonitorizacionPacientes.frecuenciaRespiratoria" class="py-name" href="#" onclick="return doclink('link-22', 'frecuenciaRespiratoria', 'link-22');">frecuenciaRespiratoria</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-23" class="py-name" targets="Class bcMonitorizacionPacientes.nivelOxigeno=bcMonitorizacionPacientes.nivelOxigeno-class.html"><a title="bcMonitorizacionPacientes.nivelOxigeno" class="py-name" href="#" onclick="return doclink('link-23', 'nivelOxigeno', 'link-23');">nivelOxigeno</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt id="link-24" class="py-name" targets="Class bcMonitorizacionComputador.temperatura=bcMonitorizacionComputador.temperatura-class.html,Class bcMonitorizacionPacientes.temperatura=bcMonitorizacionPacientes.temperatura-class.html"><a title="bcMonitorizacionComputador.temperatura
+bcMonitorizacionPacientes.temperatura" class="py-name" href="#" onclick="return doclink('link-24', 'temperatura', 'link-24');">temperatura</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1
+    on Sat Jun  6 17:32:31 2020
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

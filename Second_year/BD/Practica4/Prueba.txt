@@ -1,0 +1,25 @@
+--Prueba
+--1
+--Fecha de nacimiento del mas joven
+select max(v.FECHANACIMIENTO)
+from VOTANTES v;
+
+--localidad y numero de hab del votante mas joven
+select loc.NOMBRE, loc.NUMEROHABITANTES
+from votantes v, localidades loc
+where v.LOCALIDAD = loc.IDLOCALIDAD and (v.FECHANACIMIENTO = (select max(v.FECHANACIMIENTO)
+from VOTANTES v));
+
+--2
+--Fecha creacion PP
+select fechacreacion
+from partidos
+where siglas = 'PP';
+
+select v.NOMBRECOMPLETO, v.FECHANACIMIENTO
+from votantes v, localidades loc,provincias p
+where v.FECHANACIMIENTO > (select fechacreacion from partidos where siglas = 'PP') 
+and v.LOCALIDAD = loc.IDLOCALIDAD 
+and loc.PROVINCIA = p.IDPROVINCIA
+and p.NOMBRE = 'Andalucia'
+order by v.FECHANACIMIENTO DESC;

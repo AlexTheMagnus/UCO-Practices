@@ -1,0 +1,844 @@
+body{
+    margin: 0;
+    background:  #eeeeee;
+    font-family: "Helvetica", Helvetica, sans-serif;
+}
+
+/************************* CSS del inicio de sesión **************************/
+.input{
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.rectangle {
+    background: #ffffff;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    max-width: 50vw;
+}
+
+.tittlediv {
+    background: #ffffff;
+    height: 10vw;      /* Equals maximum image height */
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    line-height: 5vw;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.square {
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    line-height: 5vw;
+    font-size: medium;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    max-width: 50vw;
+}
+
+.squared-text{
+    color: #99a3a4;
+    padding-left: 2%;
+    float: left;
+    vertical-align: middle;
+}
+
+
+.rectangle h1 {
+    font-size: xx-large;
+    color: #ffffff;
+}
+
+.basictext {
+    color: #99a3a4;
+}
+
+.img-inicio {
+    vertical-align: middle;
+    max-height: 10vw;
+    max-width: 50vw;
+}
+
+.visiblePassword {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    margin-top: 15px;
+}
+
+.lupa {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.like {
+    height: 30px;
+    width: 30px;
+}
+
+
+input[type=text], input[type=password], input[type=date], input[type=email]{
+    border-radius: 100px;
+    width: 50%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/****************Button-Slider******************/
+
+.button-slider {
+    border-radius: 100px;
+    background-color:#e1820a;
+    border: none;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+}
+
+
+.button-slider span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button-slider span:after {
+
+    content: '>>';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button-slider:hover span {
+    padding-right: 25px;
+}
+
+.button-slider:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button-slider{
+    font-family: "Helvetica", Helvetica, sans-serif;
+    text-align: center;
+    font-size:17px;
+    margin: auto;
+    color: white;
+}
+
+/*********************************************************************/
+
+
+/****************Button-Pressed******************/
+.button-pressed {
+    border-radius: 100px;
+    background-color:#eeee;
+    border: none;
+    padding: 10px;
+    width: 170px;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #e1820a;
+    margin: 10px;
+}
+
+.button-pressed:hover {
+    background-color: #e1820a;
+    color: #ffff;
+}
+
+.button-pressed:active {
+  background-color: #CD7808;
+  color: #eeeeee;
+}
+
+/*********************************************************************/
+
+
+/***CSS WIREFRAME 4***/
+.flex-div{
+    display: flex;
+}
+
+.main-colum{
+    flex: 4;
+}
+
+.main-colum-div{
+    background: #ffffff;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    font-size: medium;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 15px;
+    max-width: 50vw;
+}
+
+.main-colum-tittle{
+    flex:3;
+    text-align: left;
+    padding-left: 100px;
+}
+
+.main-colum-author{
+    flex:1;
+}
+
+.main-colum-date{
+    flex:1;
+}
+
+.public-text{
+    text-align: justify;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.public-option{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    width: 98.5%;
+}
+
+.side-colum{
+    flex: 2;
+    text-align: center;
+}
+
+.sticky-div{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 70%;
+    background: #ffffff;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    font-size: medium;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    max-width: 50vw;
+}
+
+.side-colum-div{
+    background: #eeee;
+    width: 90%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    font-size: medium;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    max-width: 50vw;
+}
+
+.side-colum-div-div{
+    background: #ffff;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    border-left: 2px solid #e1820a;
+    font-size: medium;
+    max-width: 50vw;
+}
+
+.side-colum-text{
+    color: #e1820a;
+    line-height:35px;
+    font-size: medium;
+}
+
+/*** HEADER DEL WIREFRAME 4 EN ADELANTE ***/
+
+.box-header{
+    /*position: fixed;
+    top: 0;   --Esto es para que el header sea fijo */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffff;
+    border-bottom: solid 5px #333;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    width: 100%;
+}
+
+.img-logo{
+    flex:1;
+}
+
+.inputheader{
+    flex:3;
+}
+
+.img-balanza{
+    flex:2;
+    text-align: center;
+}
+
+.img-user{
+    flex:1.5;
+    text-align: center;
+}
+
+.input{
+    font-size: 20px;
+    width: 100%;;
+}
+
+.box-footer{
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background: black;
+    padding: 1%;
+    width: 98%;
+}
+
+.anclas-footer{
+    text-decoration: none;
+    color: white;
+}
+
+.header-ancla{
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.button-header:hover{
+    background: rgb(147, 147, 207);
+    border: none;
+}
+
+/***CSS WIREFRAME 5 ***/
+
+.caja-principal-empresa{
+    background: #ffffff;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.persona-caja-empresa{
+    color: black;
+}
+
+/***CSS WIREFRAME 6 ***/
+
+.columnas{
+    display: flex;
+}
+
+.columna1{
+    flex: 5;
+}
+
+.columna2{
+    flex: 1;
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: 10px;
+    margin-bottom: auto;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: auto;
+}
+
+.cajas-columna1{
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: auto;
+}
+
+.cajas-columna1-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cajas-columna1-footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ancla-cajas-columna1{
+    text-decoration: none;
+}
+
+/***CSS WIREFRAME 7 ***/
+
+.perfil-editar{
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 10px;
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: auto;
+}
+
+.nav-editar{
+    display: flex;
+    justify-content: space-around;
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: auto;
+}
+
+.parrafo-editar{
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: auto;
+}
+
+.ancla-nav{
+    text-decoration: none;
+}
+
+.perfil-editar1{
+    flex:2;
+    margin-left: 40px;
+}
+
+.perfil-editar2{
+    flex:5;
+}
+/***CSS WIREFRAME 8 ***/
+.button-pressed-8 {
+    border-radius: 100px;
+    background-color:#ffffff;
+    border: none;
+    padding: 10px;
+    width: 170px;
+    font-size: 17px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #e1820a;
+    margin: 10px;
+}
+
+.button-pressed-8:hover {
+    background-color: #e1820a;
+    color: #ffff;
+}
+
+.button-pressed-8:active {
+  background-color: #CD7808;
+  color: #eeeeee;
+}
+
+.perfil-cambios{
+    display: flex;
+}
+
+.menu-editar{
+    display: list-item;
+    justify-content: space-around;
+    margin: 50px;
+    margin-bottom: 500px;
+    list-style-type: none;
+    flex:1;
+}
+
+.editar-perfil{
+    background-color: #8bd1d1a4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 5px solid #333;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #888;
+}
+
+.grupos-de-trabajo{
+    background-color: #8bd1d1a4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 5px solid #333;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #888;
+}
+
+.publicaciones-guardadas{
+    background-color: #8bd1d1a4;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 5px solid #333;
+    border-radius: 2px;
+    box-shadow: 10px 10px 5px #888;
+}
+
+.eliminar-cuenta{
+    background-color: #8bd1d1a4;
+    padding: 10px;
+    border: 5px solid #333;
+    border-radius: 5px;
+    box-shadow: 10px 10px 5px #888;
+}
+
+.ancla-menu{
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+}
+
+.cajas-editar{
+    flex:1;
+}
+
+/***CSS WIREFRAME 9 ***/
+.conjunto-botones{
+    display: flex;
+    justify-content: center;
+    margin-right: 80px;
+}
+
+.button-correo{
+    background-color: #ffffff;
+    border:none;
+    margin-right: 10px;
+}
+
+.button-engranaje{
+    background-color: #ffffff;
+    border:none;
+    margin-right: 10px;
+}
+
+.button-papelera{
+    background-color: #ffffff;
+    border:none;
+}
+
+/***CSS WIREFRAME 10 ***/
+
+
+
+
+.persona-caja-empresa{
+    color: black;
+}
+
+.ancla-sinlink{
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/***CSS WIREFRAME 13 ***/
+
+.columnas{
+    display: flex;
+}
+
+.columna1{
+    flex: 5;
+}
+
+.cajas-columna1{
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+}
+
+.cajas-columna1-header{
+    display: flex;
+    justify-content: space-around;
+}
+
+.cajas-columna1-footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.ancla-cajas-columna1{
+    text-decoration: none;
+}
+
+/***CSS WIREFRAME 14 ***/
+.menu-editar-2{
+    display: list-item;
+    justify-content: space-around;
+    list-style-type: none;
+    flex:1;
+}
+
+.cajas-seguidores-seguidosxd{
+    display: flex;
+    justify-content: space-around;
+    background-color: #8bd1d1a4;
+    margin: 50px;
+    background: #ffffff;
+
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px  black;
+
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+/***CSS WIREFRAME 15 ***/
+.mega-flex{
+    display: list-item;
+    list-style: none;
+    justify-content: center;
+    justify-items: center;
+
+}
+
+.square-quince{
+    display: list-item;
+    list-style: none;
+    justify-content: space-around;
+    align-self: center;
+
+    background: #ffffff;
+
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+
+}
+
+
+.square-politica1{
+    padding-top: 10px;
+    text-align: left;
+    flex:2
+}
+
+.square-politica2{
+    flex:4;
+
+    width: 80%;
+    text-align: justify;
+    margin-bottom: 8px;
+    margin: 50px;
+    border: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: medium;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+/***CSS WIREFRAME 16 ***/
+
+.container-principal-publicar{
+    background: #ffffff;
+    width: 50%;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 8px;
+    border: 2px solid black;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: 0px;
+}
+
+
+.publicar-cancelar{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+.parrafo-publicar{
+
+    text-align: justify;
+    margin-bottom: 8px;
+    margin: 30px;
+    border: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: medium;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.input-publicar{
+    padding-top: 20px;
+}
+
+.publicar-input{
+    width: 80%;
+}
+
+/***CSS AÑADIDO P3***/
+
+.deleteAccountButton {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.sideBySide[type=text] {
+    width: 150px;
+    float: left;
+}
+
+label + .sideBySide[type=text] {
+    clear: left;
+}
+.sideBySideLabel {
+    text-align: right;
+    clear: both;
+    float:left;
+    margin-right:15px;
+}

@@ -13,3 +13,6 @@
 [submodule "Third_year/IW/N2W_Back"]
 	path = Third_year/IW/N2W_Back
 	url = git@github.com:Need2Watch/N2W_Back.git
+[submodule "Third_year/PW/React-Project-PW"]
+	path = Third_year/PW/React-Project-PW
+	url = git@github.com:RexusWolf/React-Project-PW.git

@@ -1,5 +1,5 @@
 # SO
-### Practices Operative Systems/ 2nd school year/ Degree of Computer Engineering 
+### Practices Operative Systems/ 2nd school year/ Computer Engineering Degree
 
 University practice repository for the subject *Operating Systems*.
 
